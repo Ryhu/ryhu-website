@@ -1,7 +1,7 @@
 import React from "react"
 
-function Error() {
-  return <h1>Page not found!</h1>
+function Gallery() {
+  return <h1>Gallery!</h1>
 };
 
-export default Error
+export default Gallery

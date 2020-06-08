@@ -1,7 +1,7 @@
 import React from "react"
 
-function Error() {
-  return <h1>contact</h1>
+function Contact() {
+  return <h1>Contact</h1>
 };
 
-export default Error
+export default Contact
