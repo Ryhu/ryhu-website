@@ -12,13 +12,16 @@ import Error from './components/Error';
 
 function App() {
   return (
-    <div className="App">
+    <AppContainer>
       <header className="App-header">
         <Row>
-          <Link to="/">Home </Link>
-          <Link to="/about">About</Link>
-          <Link to="/gallery">Gallery </Link>
-          <Link to="/contact">Contact </Link>
+          <Link to="/"><img id="homeHeader" src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/Portfolio%20Resources/tabHomeV2_nazdig.png" class="tab"></img></Link>
+          <Link to="/about">    <img id="aboutHeader" src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/Portfolio%20Resources/tabAboutV2_jxzxiz.png" class="tab"></img>
+</Link>
+          <Link to="/gallery">    <img id="galleryHeader" src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/Portfolio%20Resources/tabGalleryV2_q5tbtf.png" class="tab"></img>
+</Link>
+          <Link to="/contact">    <img id="contactHeader" src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/Portfolio%20Resources/tabContactV2_kj3pe1.png" class="tab"></img>
+</Link>
         </Row>
       </header>
       <Switch>
@@ -28,7 +31,11 @@ function App() {
         <Route path="/contact" component={Contact} />
         <Route component={Error} />
       </Switch>
-    </div>
+
+    <div id="portfolio" class="mx-auto">
+      <div id="headerGap"></div>
+      </div>
+    </AppContainer>
   );
 }
 
@@ -36,6 +43,13 @@ const Row = styled.div`
   display: flex;
   align-content: row;
 `
-
+const AppContainer = styled.div`
+  text-align: center;
+  height: 100vh;
+  background-image: url('./wood_table_background.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-color: black;
+`
 
 export default App;
