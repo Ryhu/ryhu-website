@@ -3,9 +3,6 @@ import React from "react"
 function AboutUs() {
   return (
     <div id="about" class="sheet hidden">
-      <div id="headerGap2"></div>
-      <div id="aboutTextBox" class="mx-auto">
-        <h1>About Me</h1>
         <div id="aboutText">
             Who am I?
         My name is Ryan Hu, and I am a junior web developer living in New York. I enjoy solving challenging problems,
@@ -17,7 +14,6 @@ function AboutUs() {
         I generally like working in a group, as each person has their own set of coding tricks 
         and there is always much to learn from working with others. 
         </div>
-      </div>
     </div>
   )
 }

@@ -71,6 +71,7 @@ const PortfolioCase = styled.div`
   padding: 10px;
   width: 65%;
   margin: auto;
+  height: 43rem;
 `
 const Page = styled.div`
   background-color: white;
