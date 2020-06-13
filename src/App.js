@@ -30,16 +30,16 @@ class App extends Component {
       <AppContainer>
         <header className="App-header">
           <ButtonsContainer>
-            <Link to="/"><img id="homeHeader" style={{verticalAlign: "bottom"}} src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/Portfolio%20Resources/tabHomeV2_nazdig.png"></img></Link>
+            <Link to="/"><NavButtonImage id="homeHeader" style={{verticalAlign: "bottom"}} src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/Portfolio%20Resources/tabHomeV2_nazdig.png"></NavButtonImage></Link>
             <div>
-              <Link to="/about"><img id="aboutHeader" style={{verticalAlign: "bottom"}} src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/Portfolio%20Resources/tabAboutV2_jxzxiz.png"></img></Link>
-              <Link to="/gallery"><img id="galleryHeader"style={{verticalAlign: "bottom"}}  src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/Portfolio%20Resources/tabGalleryV2_q5tbtf.png"></img></Link>
-              <Link to="/contact"><img id="contactHeader"style={{verticalAlign: "bottom"}}  src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/Portfolio%20Resources/tabContactV2_kj3pe1.png"></img></Link>
+              <Link to="/about"><NavButtonImage id="aboutHeader" style={{verticalAlign: "bottom"}} src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/Portfolio%20Resources/tabAboutV2_jxzxiz.png"></NavButtonImage></Link>
+              <Link to="/gallery"><NavButtonImage id="galleryHeader"style={{verticalAlign: "bottom"}}  src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/Portfolio%20Resources/tabGalleryV2_q5tbtf.png"></NavButtonImage></Link>
+              <Link to="/contact"><NavButtonImage id="contactHeader"style={{verticalAlign: "bottom"}}  src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/Portfolio%20Resources/tabContactV2_kj3pe1.png"></NavButtonImage></Link>
             </div>
           </ButtonsContainer>
         </header>
         <PortfolioCase>
-          <Page className={this.state.class + " classy"}>
+          <Page className={this.state.class + 'page'}>
             <Switch>
               <Route path="/" component={Home} exact />
               <Route path="/about" component={About} />
@@ -67,7 +67,10 @@ const Thing = styled.div`
     padding: 0;
   }
 `
-
+const NavButtonImage = styled.img`
+// TODO: HARD CODED
+  width: 150px;
+`
 const ButtonsContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -87,13 +90,15 @@ const PortfolioCase = styled.div`
   width: 65%;
   margin: auto;
   height: 43rem;
-  perspective:7000px;
+  perspective:3000px;
 `
 const Page = styled.div`
   background-color: white;
   height: 43rem;
   width: 99%;
   margin: auto;
+  backface-visibility: hidden;
+  display: absolute;
   transition: .5s;
 `
 const AppContainer = styled.div`

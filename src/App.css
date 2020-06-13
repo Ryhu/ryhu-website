@@ -86,6 +86,7 @@ body{
 
 }
 
+
 .sheet{
   width:1300px;
   height:600px;
@@ -96,10 +97,6 @@ body{
 
 .flip{
   transform-origin:bottom;
-  transform: rotateX(-90deg);
-}
-.flip2{
-  transform-origin:top;
   transform: rotateX(-90deg);
 }
 
