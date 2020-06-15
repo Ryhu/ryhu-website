@@ -91,6 +91,7 @@ const PortfolioCase = styled.div`
   margin: auto;
   height: 43rem;
   perspective:3000px;
+  perspective-origin: center;
 `
 const Page = styled.div`
   background-color: white;
@@ -100,6 +101,7 @@ const Page = styled.div`
   backface-visibility: hidden;
   display: absolute;
   transition: .5s;
+  transform-origin: bottom;
 `
 const AppContainer = styled.div`
   text-align: center;

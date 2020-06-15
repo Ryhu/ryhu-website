@@ -94,7 +94,6 @@ body{
 }
 
 .flip{
-  transform-origin:bottom;
   transform: rotateX(-90deg);
 }
 

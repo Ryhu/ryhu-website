@@ -19,18 +19,14 @@ const HomeHeaderGap = styled.img`
 const HomeBackground = styled.div`
   background-color: #ffdead;
   height: 41rem;
-  p {
-    margin: 0;
-  }
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `
 
 const TitleText = styled.div`
   background-color: #ffdead;
-  height: 400px;
-  p {
-    margin: 0;
-  }
+  font-size: 6rem;
 `
 
 export default Home
