@@ -42,40 +42,9 @@
 }
 
 
-
-
-
-
-
-body{
-  background-color:black;
-  
-}
-.row{
-  margin-left:0px;
-}
-
 #headerGap, #headerGap2{
   background-color:#f0d38f;
   height:10px;
-}
-
-#headerGap2{
-  height:25px;
-}
-
-
-.tab{
-  margin-left:10px;
-}
-
-
-#portfolio{
-  width:1300px;
-  height:650px;
-  background-color:#fcd986;
-  margin-bottom:50px;
-  perspective:7000px;
 }
 
 #home{
@@ -84,43 +53,19 @@ body{
 
 }
 
-
-.sheet{
-  width:1300px;
-  height:600px;
-  backface-visibility: hidden;
-  transition: .5s;
-  border-radius: 0 0 10px 10px;
-}
-
 .flip{
   transform: rotateX(-90deg);
 }
 
+/* TODO: necessary? */
 .onTop{
   position:absolute;
 }
 
-#coverP{
-  font-size:90px;
-  margin-top:150px;
-  text-align:center;
-}
 
-#gallery{
-  background-color:#fff9ef;
-}
-#contact{
-  background-color:#fff9ef;
-}
 
-h1{
-  text-align:center;
-}
 
-#headers{
-  background-color:black;
-}
+
 
 .picRow{
   margin-top:40px;
