@@ -18,7 +18,7 @@ const HomeHeaderGap = styled.img`
 
 const HomeBackground = styled.div`
   background-color: #ffdead;
-  height: 40rem;
+  height: 41rem;
   p {
     margin: 0;
   }

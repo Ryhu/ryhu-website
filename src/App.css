@@ -64,9 +64,7 @@ body{
   height:25px;
 }
 
-#homeHeader{
-  margin-right:400px;
-}
+
 .tab{
   margin-left:10px;
 }
@@ -110,10 +108,6 @@ body{
   text-align:center;
 }
 
-
-#about{
-  background-color:#fff9ef;
-}
 #gallery{
   background-color:#fff9ef;
 }

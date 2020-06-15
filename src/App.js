@@ -39,7 +39,7 @@ class App extends Component {
           </ButtonsContainer>
         </header>
         <PortfolioCase>
-          <Page className={this.state.class + 'page'}>
+          <Page className={this.state.class + ' page'}>
             <Switch>
               <Route path="/" component={Home} exact />
               <Route path="/about" component={About} />
