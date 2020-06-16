@@ -83,7 +83,6 @@ const ButtonsContainer = styled.div`
   width: 60%;
   background-color: black
 `
-
 const PortfolioCase = styled.div`
   background-color: #f0d38f;
   padding: 10px;
@@ -102,6 +101,7 @@ const Page = styled.div`
   display: absolute;
   transition: .5s;
   transform-origin: bottom;
+  overflow: hidden;
 `
 const AppContainer = styled.div`
   text-align: center;

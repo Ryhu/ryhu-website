@@ -2,8 +2,7 @@ import React from "react"
 
 function Gallery() {
   return (
-    <div id="gallery" class="sheet hidden">
-      <div id="headerGap2"></div>
+    <div>
       <div class="row picRow">
         <a href="https://codepen.io/Ryhu/full/eGeXbv/" target="_blank">
           <img class="pic" src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/minis/SimonMini_ybnppw.png"></img>
