@@ -15,7 +15,12 @@ class App extends Component {
     super()
 
     this.state = {
-      class: ''
+      class: '',
+      currentPage: 0,
+      active: true,
+      direction: true,
+      0: '',
+
     }
   }
 
@@ -25,28 +30,129 @@ class App extends Component {
       class: this.state.class == 'flip' ? '' : 'flip'
     })
   }
+  
+  flipHandler(clickedPage){
+    console.log(this)
+    if (this.state.active && clickedPage != this.state.currentPage){
+      let delay;
+      let active = false;
+      let direction;
+
+      if (this.state.currentPage > clickedPage){
+        direction = false;
+        delay = this.state.currentPage - clickedPage;
+      }
+      else{
+        direction = true;
+        delay =  clickedPage - this.state.currentPage;
+      }
+      setTimeout(() => {
+        this.setState({
+          active: true
+        })
+      }, (delay * 520));
+
+      this.setState({
+        delay: delay,
+        active: active,
+        direction: direction,
+      }, this.flipLogic(this.state.currentPage, clickedPage))
+      
+    }
+  }
+  
+
+  // //tab on click
+  // $(".tab").on("click", function(){
+  //   flipHandler(translator($(this).attr('id')));
+  // })
+    
+  // //main flip logic
+  
+  flipLogic(i, end){
+    console.log(this.state)
+    console.log('hi')
+    // if (i != end){
+    //   if (direction){
+    //     $("#" + translator(i+1)).toggleClass("hidden")
+    //     $("#" + translator(i)).toggleClass("flip");
+    //     setTimeout(function(){
+    //       $("#" + translator(i)).toggleClass("hidden onTop");
+    //       $("#" + translator(i+1)).toggleClass("onTop")
+    //       flipLogic(i+1, end)
+    //     }, 520);
+    //   }
+    //   else{
+    //     $("#" + translator(i)).toggleClass("onTop")
+    //     $("#" + translator(i-1)).toggleClass("onTop");
+    //     $("#" + translator(i-1)).toggleClass("hidden")
+  
+    //     setTimeout(function(){
+    //       $("#" + translator(i-1)).toggleClass("flip");
+    //     }, 20);
+       
+        
+    //     setTimeout(function(){
+          
+    //       $("#" + translator(i)).toggleClass("hidden");
+    //       flipLogic(i-1, end)
+    //     }, 520);
+    //   }
+    // }
+    // else currentPage = i;
+  }
+  
+  // //translates
+  // function translator(word){
+  //   switch(word){
+  //     case "homeHeader":
+  //       return 0;
+  //       break;
+  //     case "aboutHeader":
+  //       return 1;
+  //       break;
+  //     case "galleryHeader":
+  //       return 2;
+  //       break;
+  //     case "contactHeader":
+  //       return 3;
+  //       break;
+  //     case 0:
+  //       return "home";
+  //       break;
+  //     case 1:
+  //       return "about";
+  //       break;
+  //     case 2:
+  //       return "gallery";
+  //       break;
+  //     case 3:
+  //       return "contact";
+  //       break;
+  //   }
+  // }
+
+
+
+
+
+
   render(){
     return (
       <AppContainer>
         <header className="App-header">
           <ButtonsContainer>
-            <Link to="/"><NavButtonImage id="homeHeader" style={{verticalAlign: "bottom"}} src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/Portfolio%20Resources/tabHomeV2_nazdig.png"></NavButtonImage></Link>
+            <NavButtonImage onClick={this.flipHandler(0)} src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/Portfolio%20Resources/tabHomeV2_nazdig.png"></NavButtonImage>
             <div>
-              <Link to="/about"><NavButtonImage id="aboutHeader" style={{verticalAlign: "bottom"}} src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/Portfolio%20Resources/tabAboutV2_jxzxiz.png"></NavButtonImage></Link>
-              <Link to="/gallery"><NavButtonImage id="galleryHeader"style={{verticalAlign: "bottom"}}  src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/Portfolio%20Resources/tabGalleryV2_q5tbtf.png"></NavButtonImage></Link>
-              <Link to="/contact"><NavButtonImage id="contactHeader"style={{verticalAlign: "bottom"}}  src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/Portfolio%20Resources/tabContactV2_kj3pe1.png"></NavButtonImage></Link>
+              <NavButtonImage onClick={() => {this.flipHandler(1)}} src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/Portfolio%20Resources/tabAboutV2_jxzxiz.png"></NavButtonImage>
+              <NavButtonImage onClick={() => {this.flipHandler(2)}} src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/Portfolio%20Resources/tabGalleryV2_q5tbtf.png"></NavButtonImage>
+              <NavButtonImage onClick={() => {this.flipHandler(3)}} src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/Portfolio%20Resources/tabContactV2_kj3pe1.png"></NavButtonImage>
             </div>
           </ButtonsContainer>
         </header>
         <PortfolioCase>
           <Page className={this.state.class + ' page'}>
-            <Switch>
-              <Route path="/" component={Home} exact />
-              <Route path="/about" component={About} />
-              <Route path="/gallery" component={Gallery} />
-              <Route path="/contact" component={Contact} />
-              <Route component={Error} />
-            </Switch>
+            f
           </Page>
         </PortfolioCase>
         <br></br>
@@ -70,6 +176,7 @@ const Thing = styled.div`
 const NavButtonImage = styled.img`
 // TODO: HARD CODED
   width: 150px;
+  vertical-align: bottom;
 `
 const ButtonsContainer = styled.div`
   display: flex;
@@ -91,15 +198,17 @@ const PortfolioCase = styled.div`
   height: 43rem;
   perspective:3000px;
   perspective-origin: center;
+  backface-visibility:hidden
 `
 const Page = styled.div`
   background-color: white;
   height: 43rem;
   width: 99%;
   margin: auto;
+  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   display: absolute;
-  transition: .5s;
+  transition: transform .5s, opacity .5s;
   transform-origin: bottom;
   overflow: hidden;
 `

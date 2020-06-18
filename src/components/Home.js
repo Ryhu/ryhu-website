@@ -3,12 +3,12 @@ import styled from 'styled-components'
 
 function Home() {
   return(
-    <div>
+    <HomeContainer>
       <HomeHeaderGap style={{verticalAlign: "bottom"}} src="https://res.cloudinary.com/devvqi6h0/image/upload/v1591644755/portfolio%20resources/tabGap2SeeThrough.png"></HomeHeaderGap>
       <HomeBackground>
         <TitleText >Hu, Ryan</TitleText>
       </HomeBackground>
-    </div>
+    </HomeContainer>
   )
 }
 
@@ -27,6 +27,9 @@ const HomeBackground = styled.div`
 const TitleText = styled.div`
   background-color: #ffdead;
   font-size: 6rem;
+`
+
+const HomeContainer = styled.div`
 `
 
 export default Home
