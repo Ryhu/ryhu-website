@@ -15,72 +15,71 @@ class App extends Component {
     super()
 
     this.state = {
-      class: '',
-      currentPage: 0,
-      active: true,
-      direction: true,
-      0: '',
-
+      disabled: false,
+      currentPage: 'Home',
+      Home: 'active',
+      About: 'hidden',
+      Gallery: 'hidden',
+      Contact: 'hidden',
     }
   }
 
-  applyClass(){
-    console.log(this.state)
+  forward(difference, currentPage, clickedPage){
+    console.log('forward')
     this.setState({
-      class: this.state.class == 'flip' ? '' : 'flip'
+      [currentPage]: 'active flip',
+      [clickedPage]: ''
+    })
+
+    // $("#" + translator(i+1)).toggleClass("hidden")
+    // $("#" + translator(i)).toggleClass("flip");
+    // setTimeout(function(){
+    //   $("#" + translator(i)).toggleClass("hidden onTop");
+    //   $("#" + translator(i+1)).toggleClass("onTop")
+    //   flipLogic(i+1, end)
+    // }, 520);
+  }
+  back(difference){
+    this.setState({
+      Home: 'active',
+      About: ''
     })
   }
-  
-  flipHandler(clickedPage){
-    console.log(this)
-    if (this.state.active && clickedPage != this.state.currentPage){
-      let delay;
-      let active = false;
-      let direction;
 
-      if (this.state.currentPage > clickedPage){
-        direction = false;
-        delay = this.state.currentPage - clickedPage;
+  
+
+  applyClass(){
+    this.setState({
+      class: this.state.class == 'flip active' ? 'active' : 'flip active'
+    })
+  }
+
+  flipHandler(clickedPage){
+    console.log('flip')
+    if (!this.state.disabled && clickedPage != this.state.currentPage){
+      let delay;
+      let difference = Pages.indexOf(this.state.currentPage) - Pages.indexOf(this.state.currentPage)
+      console.log(difference)
+
+      if (difference > 0){
+        this.forward(difference, this.state.currentPage, clickedPage)
       }
       else{
-        direction = true;
-        delay =  clickedPage - this.state.currentPage;
+        this.back(difference, this.state.currentPage, clickedPage)
       }
+      
+      this.setState({
+        disabled: true,
+      })
+
       setTimeout(() => {
         this.setState({
-          active: true
+          disabled: false
         })
       }, (delay * 520));
-
-      this.setState({
-        delay: delay,
-        active: active,
-        direction: direction,
-      }, this.flipLogic(this.state.currentPage, clickedPage))
-      
     }
-  }
-  
-
-  // //tab on click
-  // $(".tab").on("click", function(){
-  //   flipHandler(translator($(this).attr('id')));
-  // })
-    
-  // //main flip logic
-  
-  flipLogic(i, end){
-    console.log(this.state)
-    console.log('hi')
     // if (i != end){
     //   if (direction){
-    //     $("#" + translator(i+1)).toggleClass("hidden")
-    //     $("#" + translator(i)).toggleClass("flip");
-    //     setTimeout(function(){
-    //       $("#" + translator(i)).toggleClass("hidden onTop");
-    //       $("#" + translator(i+1)).toggleClass("onTop")
-    //       flipLogic(i+1, end)
-    //     }, 520);
     //   }
     //   else{
     //     $("#" + translator(i)).toggleClass("onTop")
@@ -101,6 +100,14 @@ class App extends Component {
     // }
     // else currentPage = i;
   }
+
+  // //tab on click
+  // $(".tab").on("click", function(){
+  //   flipHandler(translator($(this).attr('id')));
+  // })
+    
+  // //main flip logic
+
   
   // //translates
   // function translator(word){
@@ -142,25 +149,37 @@ class App extends Component {
       <AppContainer>
         <header className="App-header">
           <ButtonsContainer>
-            <NavButtonImage onClick={this.flipHandler(0)} src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/Portfolio%20Resources/tabHomeV2_nazdig.png"></NavButtonImage>
+            <NavButtonImage onClick={() => {this.flipHandler('About')}} src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/Portfolio%20Resources/tabHomeV2_nazdig.png"></NavButtonImage>
             <div>
-              <NavButtonImage onClick={() => {this.flipHandler(1)}} src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/Portfolio%20Resources/tabAboutV2_jxzxiz.png"></NavButtonImage>
-              <NavButtonImage onClick={() => {this.flipHandler(2)}} src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/Portfolio%20Resources/tabGalleryV2_q5tbtf.png"></NavButtonImage>
-              <NavButtonImage onClick={() => {this.flipHandler(3)}} src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/Portfolio%20Resources/tabContactV2_kj3pe1.png"></NavButtonImage>
+              <NavButtonImage onClick={() => {this.flipHandler('About')}} src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/Portfolio%20Resources/tabAboutV2_jxzxiz.png"></NavButtonImage>
+              <NavButtonImage onClick={() => {this.flipHandler('About')}} src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/Portfolio%20Resources/tabGalleryV2_q5tbtf.png"></NavButtonImage>
+              <NavButtonImage onClick={() => {this.flipHandler('About')}} src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/Portfolio%20Resources/tabContactV2_kj3pe1.png"></NavButtonImage>
             </div>
           </ButtonsContainer>
         </header>
         <PortfolioCase>
-          <Page className={this.state.class + ' page'}>
-            f
+          <Page className={this.state.Home}>
+            <Home></Home>
+          </Page>
+          <Page className={this.state.About}>
+            <About></About>
+          </Page>
+          <Page className={this.state.Gallery}>
+            <Gallery></Gallery>
+          </Page>
+          <Page className={this.state.Contact}>
+            <Contact></Contact>
           </Page>
         </PortfolioCase>
         <br></br>
-      <button onClick={() => this.applyClass()}>clickety click</button>
+      <button onClick={() => this.forward()}>clickety click</button>
+      <button onClick={() => this.back()}>backety click</button>
       </AppContainer>
     );
   }
 }
+
+const Pages = ['Home', 'About', 'Gallery', 'Contact']
 
 const Thing = styled.div`
   background-color: blue;
