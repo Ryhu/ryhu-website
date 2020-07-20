@@ -41,13 +41,11 @@ class App extends Component {
       currentPage: clickedPage
     })
 
-    // $("#" + translator(i+1)).toggleClass("hidden")
-    // $("#" + translator(i)).toggleClass("flip");
-    // setTimeout(function(){
-    //   $("#" + translator(i)).toggleClass("hidden onTop");
-    //   $("#" + translator(i+1)).toggleClass("onTop")
-    //   flipLogic(i+1, end)
-    // }, 520);
+    if(difference > 1){
+      setTimeout(() => {
+        this.forward(difference-1, clickedPage, Pages[Pages.indexOf(clickedPage)+1])
+      }, (500));
+    }
   }
 
 
@@ -66,16 +64,13 @@ class App extends Component {
   }
 
   flipHandler(clickedPage){
-    console.log('flip')
-    console.log(this.state.currentPage, clickedPage)
-    console.log(Pages.indexOf(this.state.currentPage), Pages.indexOf(clickedPage))
     if (!this.state.disabled && clickedPage != this.state.currentPage){
-      let delay;
       let difference = Pages.indexOf(this.state.currentPage) - Pages.indexOf(clickedPage)
       console.log(difference)
 
       if (difference < 0){
-        this.forward(Math.abs(difference), this.state.currentPage, clickedPage)
+        console.log(Pages[Pages.indexOf(this.state.currentPage)+1])
+        this.forward(Math.abs(difference), this.state.currentPage, Pages[Pages.indexOf(this.state.currentPage)+1])
       }
       else{
         this.back(difference, this.state.currentPage, clickedPage)
@@ -89,7 +84,7 @@ class App extends Component {
         this.setState({
           disabled: false
         })
-      }, (delay * 520));
+      }, (Math.abs(difference) * 500));
     }
     // if (i != end){
     //   if (direction){
