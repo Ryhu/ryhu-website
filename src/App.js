@@ -25,10 +25,20 @@ class App extends Component {
   }
 
   forward(difference, currentPage, clickedPage){
-    console.log('forward')
+    let state = {
+      disabled: true,
+      currentPage: currentPage,
+      Home: 'hidden',
+      About: 'hidden',
+      Gallery: 'hidden',
+      Contact: 'hidden',
+    }
+    state[clickedPage] =  '';
+    state[currentPage] =  'active flip';
+    this.setState(state, console.log(state))
     this.setState({
-      [currentPage]: 'active flip',
-      [clickedPage]: ''
+      [clickedPage]: 'active',
+      currentPage: clickedPage
     })
 
     // $("#" + translator(i+1)).toggleClass("hidden")
@@ -39,14 +49,15 @@ class App extends Component {
     //   flipLogic(i+1, end)
     // }, 520);
   }
+
+
   back(difference){
+    console.log('back')
     this.setState({
       Home: 'active',
       About: ''
     })
   }
-
-  
 
   applyClass(){
     this.setState({
@@ -56,13 +67,15 @@ class App extends Component {
 
   flipHandler(clickedPage){
     console.log('flip')
+    console.log(this.state.currentPage, clickedPage)
+    console.log(Pages.indexOf(this.state.currentPage), Pages.indexOf(clickedPage))
     if (!this.state.disabled && clickedPage != this.state.currentPage){
       let delay;
-      let difference = Pages.indexOf(this.state.currentPage) - Pages.indexOf(this.state.currentPage)
+      let difference = Pages.indexOf(this.state.currentPage) - Pages.indexOf(clickedPage)
       console.log(difference)
 
-      if (difference > 0){
-        this.forward(difference, this.state.currentPage, clickedPage)
+      if (difference < 0){
+        this.forward(Math.abs(difference), this.state.currentPage, clickedPage)
       }
       else{
         this.back(difference, this.state.currentPage, clickedPage)
@@ -149,11 +162,11 @@ class App extends Component {
       <AppContainer>
         <header className="App-header">
           <ButtonsContainer>
-            <NavButtonImage onClick={() => {this.flipHandler('About')}} src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/Portfolio%20Resources/tabHomeV2_nazdig.png"></NavButtonImage>
+            <NavButtonImage onClick={() => {this.flipHandler('Home')}} src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/Portfolio%20Resources/tabHomeV2_nazdig.png"></NavButtonImage>
             <div>
               <NavButtonImage onClick={() => {this.flipHandler('About')}} src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/Portfolio%20Resources/tabAboutV2_jxzxiz.png"></NavButtonImage>
-              <NavButtonImage onClick={() => {this.flipHandler('About')}} src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/Portfolio%20Resources/tabGalleryV2_q5tbtf.png"></NavButtonImage>
-              <NavButtonImage onClick={() => {this.flipHandler('About')}} src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/Portfolio%20Resources/tabContactV2_kj3pe1.png"></NavButtonImage>
+              <NavButtonImage onClick={() => {this.flipHandler('Gallery')}} src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/Portfolio%20Resources/tabGalleryV2_q5tbtf.png"></NavButtonImage>
+              <NavButtonImage onClick={() => {this.flipHandler('Contact')}} src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/Portfolio%20Resources/tabContactV2_kj3pe1.png"></NavButtonImage>
             </div>
           </ButtonsContainer>
         </header>
