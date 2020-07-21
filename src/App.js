@@ -26,8 +26,6 @@ class App extends Component {
 
   forward(difference, currentPage, clickedPage){
     let state = {
-      disabled: true,
-      currentPage: currentPage,
       Home: 'hidden',
       About: 'hidden',
       Gallery: 'hidden',
@@ -48,19 +46,28 @@ class App extends Component {
     }
   }
 
+  back(difference, currentPage, clickedPage){
+    let state = {
+      Home: 'hidden',
+      About: 'hidden',
+      Gallery: 'hidden',
+      Contact: 'hidden',
+    }
+    state[clickedPage] =  'active flip';
+    state[currentPage] =  '';
+    this.setState(state, console.log(state))
+    setTimeout(() => {
+      this.setState({
+        [clickedPage]: 'active',
+        currentPage: clickedPage
+      })
+    }, (20));
 
-  back(difference){
-    console.log('back')
-    this.setState({
-      Home: 'active',
-      About: ''
-    })
-  }
-
-  applyClass(){
-    this.setState({
-      class: this.state.class == 'flip active' ? 'active' : 'flip active'
-    })
+    if(difference > 1){
+      setTimeout(() => {
+        this.back(difference-1, clickedPage, Pages[Pages.indexOf(clickedPage)-1])
+      }, (520));
+    }
   }
 
   flipHandler(clickedPage){
@@ -69,11 +76,10 @@ class App extends Component {
       console.log(difference)
 
       if (difference < 0){
-        console.log(Pages[Pages.indexOf(this.state.currentPage)+1])
         this.forward(Math.abs(difference), this.state.currentPage, Pages[Pages.indexOf(this.state.currentPage)+1])
       }
       else{
-        this.back(difference, this.state.currentPage, clickedPage)
+        this.back(difference, this.state.currentPage, Pages[Pages.indexOf(this.state.currentPage)-1])
       }
       
       this.setState({
@@ -84,7 +90,7 @@ class App extends Component {
         this.setState({
           disabled: false
         })
-      }, (Math.abs(difference) * 500));
+      }, (Math.abs(difference) * 520));
     }
     // if (i != end){
     //   if (direction){
@@ -165,23 +171,22 @@ class App extends Component {
             </div>
           </ButtonsContainer>
         </header>
-        <PortfolioCase>
-          <Page className={this.state.Home}>
-            <Home></Home>
-          </Page>
-          <Page className={this.state.About}>
-            <About></About>
-          </Page>
-          <Page className={this.state.Gallery}>
-            <Gallery></Gallery>
-          </Page>
-          <Page className={this.state.Contact}>
-            <Contact></Contact>
-          </Page>
-        </PortfolioCase>
-        <br></br>
-      <button onClick={() => this.forward()}>clickety click</button>
-      <button onClick={() => this.back()}>backety click</button>
+        <PortfolioPadding>
+          <PortfolioCase>
+            <Page className={this.state.Home}>
+              <Home></Home>
+            </Page>
+            <Page className={this.state.About}>
+              <About></About>
+            </Page>
+            <Page className={this.state.Gallery}>
+              <Gallery></Gallery>
+            </Page>
+            <Page className={this.state.Contact}>
+              <Contact></Contact>
+            </Page>
+          </PortfolioCase>
+        </PortfolioPadding>
       </AppContainer>
     );
   }
@@ -217,24 +222,25 @@ const ButtonsContainer = styled.div`
   width: 60%;
   background-color: black
 `
+const PortfolioPadding = styled.div`
+  padding: 10px 10px 0 10px;
+  background-color: #f0d38f;
+  width: 65%;
+  margin: auto;
+`
 const PortfolioCase = styled.div`
   background-color: #f0d38f;
-  padding: 10px;
-  width: 65%;
   margin: auto;
   height: 43rem;
   perspective:3000px;
   perspective-origin: center;
-  backface-visibility:hidden
+  backface-visibility:hidden;
 `
 const Page = styled.div`
   background-color: white;
   height: 43rem;
-  width: 99%;
-  margin: auto;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  display: absolute;
   transition: transform .5s, opacity .5s;
   transform-origin: bottom;
   overflow: hidden;
