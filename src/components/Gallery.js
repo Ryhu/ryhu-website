@@ -3,7 +3,7 @@ import React from "react"
 function Gallery() {
   return (
     <div>
-      <div class="row picRow">
+      <div>
         <a href="https://codepen.io/Ryhu/full/eGeXbv/" target="_blank">
           <img class="pic" src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/minis/SimonMini_ybnppw.png"></img>
         </a>
@@ -17,7 +17,7 @@ function Gallery() {
           Pomodoro timer for productivity, capable of switching between break and session timers
         </div>
       </div>
-      <div class="row picRow">
+      <div>
         <a href="https://codepen.io/Ryhu/full/zwmbgp/" target="_blank">
           <img class="pic" src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/minis/CalculatorMini_xw27y0.png"></img>
         </a>

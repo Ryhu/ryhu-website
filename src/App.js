@@ -119,44 +119,6 @@ class App extends Component {
   // $(".tab").on("click", function(){
   //   flipHandler(translator($(this).attr('id')));
   // })
-    
-  // //main flip logic
-
-  
-  // //translates
-  // function translator(word){
-  //   switch(word){
-  //     case "homeHeader":
-  //       return 0;
-  //       break;
-  //     case "aboutHeader":
-  //       return 1;
-  //       break;
-  //     case "galleryHeader":
-  //       return 2;
-  //       break;
-  //     case "contactHeader":
-  //       return 3;
-  //       break;
-  //     case 0:
-  //       return "home";
-  //       break;
-  //     case 1:
-  //       return "about";
-  //       break;
-  //     case 2:
-  //       return "gallery";
-  //       break;
-  //     case 3:
-  //       return "contact";
-  //       break;
-  //   }
-  // }
-
-
-
-
-
 
   render(){
     return (
@@ -239,6 +201,7 @@ const PortfolioCase = styled.div`
 const Page = styled.div`
   background-color: white;
   height: 43rem;
+  width: 100%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   transition: transform .5s, opacity .5s;

@@ -2,7 +2,7 @@ import React from "react"
 
 function Contact() {
   return (
-    <div id="contact" class="sheet hidden">
+    <div id="contact" class="sheet">
       <div class="row">
         <div id="contactInputField">
           Name:<input id="nameField" type="text" class="lineInput"></input>
