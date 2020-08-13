@@ -3,17 +3,18 @@ import styled from 'styled-components'
 
 function Home() {
   return(
-    <HomeContainer>
-      <HomeHeaderGap style={{verticalAlign: "bottom"}} src="https://res.cloudinary.com/devvqi6h0/image/upload/v1591644755/portfolio%20resources/tabGap2SeeThrough.png"></HomeHeaderGap>
+    <div>
+      <HomeHeaderGap src="https://res.cloudinary.com/devvqi6h0/image/upload/v1591644755/portfolio%20resources/tabGap2SeeThrough.png"></HomeHeaderGap>
       <HomeBackground>
         <TitleText >Hu, Ryan</TitleText>
       </HomeBackground>
-    </HomeContainer>
+    </div>
   )
 }
 
 const HomeHeaderGap = styled.img`
-  max-width: 80%
+  max-width: 80%;
+  vertical-align: bottom;
 `
 
 const HomeBackground = styled.div`
@@ -27,9 +28,6 @@ const HomeBackground = styled.div`
 const TitleText = styled.div`
   background-color: #ffdead;
   font-size: 6rem;
-`
-
-const HomeContainer = styled.div`
 `
 
 export default Home
