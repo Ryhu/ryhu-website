@@ -1,11 +1,11 @@
 import React from "react"
 
-function AboutUs() {
+function About() {
   return (
     <div>
       <div>
           Who am I?
-        My name is Ryan Hu, and I am a junior web developer living in New York. I enjoy solving challenging problems,
+        My name is Ryan Hu, and I am a eb developer living in New York. I enjoy solving challenging problems,
         and adding functionality/ease of access to sites that may or may not need them. 
 
         I also have experience coding with others, and in a group setting, I bring cooperation to the table. 
@@ -18,4 +18,4 @@ function AboutUs() {
   )
 }
 
-export default AboutUs
+export default About
