@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/ryhu-website/static/css/main.62e9a460.chunk.css",
-    "main.js": "/ryhu-website/static/js/main.5ff79775.chunk.js",
-    "main.js.map": "/ryhu-website/static/js/main.5ff79775.chunk.js.map",
+    "main.js": "/ryhu-website/static/js/main.bd77a497.chunk.js",
+    "main.js.map": "/ryhu-website/static/js/main.bd77a497.chunk.js.map",
     "runtime-main.js": "/ryhu-website/static/js/runtime-main.0553551a.js",
     "runtime-main.js.map": "/ryhu-website/static/js/runtime-main.0553551a.js.map",
     "static/css/2.8d660b98.chunk.css": "/ryhu-website/static/css/2.8d660b98.chunk.css",
     "static/js/2.f9b28513.chunk.js": "/ryhu-website/static/js/2.f9b28513.chunk.js",
     "static/js/2.f9b28513.chunk.js.map": "/ryhu-website/static/js/2.f9b28513.chunk.js.map",
     "index.html": "/ryhu-website/index.html",
-    "precache-manifest.862f43283a81c68cbb317890e95cbd2f.js": "/ryhu-website/precache-manifest.862f43283a81c68cbb317890e95cbd2f.js",
+    "precache-manifest.66771895039d301298e891bc04064ccf.js": "/ryhu-website/precache-manifest.66771895039d301298e891bc04064ccf.js",
     "service-worker.js": "/ryhu-website/service-worker.js",
     "static/css/2.8d660b98.chunk.css.map": "/ryhu-website/static/css/2.8d660b98.chunk.css.map",
     "static/css/main.62e9a460.chunk.css.map": "/ryhu-website/static/css/main.62e9a460.chunk.css.map",
@@ -21,6 +21,6 @@
     "static/css/2.8d660b98.chunk.css",
     "static/js/2.f9b28513.chunk.js",
     "static/css/main.62e9a460.chunk.css",
-    "static/js/main.5ff79775.chunk.js"
+    "static/js/main.bd77a497.chunk.js"
   ]
 }
