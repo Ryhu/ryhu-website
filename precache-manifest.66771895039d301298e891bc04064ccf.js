@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ac9be52f41c436c011fcf5ea6e33b352",
+    "revision": "9cf9f1d8255fb0ca85f94e5fd99bba26",
     "url": "/ryhu-website/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ryhu-website/static/css/2.8d660b98.chunk.css"
   },
   {
-    "revision": "feecd76c3f1592d8388a",
+    "revision": "0c29ca8ef938b6a066ed",
     "url": "/ryhu-website/static/css/main.62e9a460.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ryhu-website/static/js/2.f9b28513.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "feecd76c3f1592d8388a",
-    "url": "/ryhu-website/static/js/main.5ff79775.chunk.js"
+    "revision": "0c29ca8ef938b6a066ed",
+    "url": "/ryhu-website/static/js/main.bd77a497.chunk.js"
   },
   {
     "revision": "853b2aa3e9b1fdd952d7",
