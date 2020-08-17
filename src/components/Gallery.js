@@ -42,7 +42,8 @@ function Gallery() {
 
 const GalleryTitle = styled.p`
   margin-top: .7rem;
-  font-size: 1.3rem;
+  margin-bottom: 0rem;
+  font-size: 1.5rem;
   font-weight: bold;
 `
 
@@ -88,7 +89,7 @@ const ProjectRow = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  margin-bottom: 2rem;
+  margin: 3rem;
 `
   
 const SimonDescription = (
