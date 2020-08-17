@@ -92,63 +92,39 @@ class App extends Component {
         })
       }, (Math.abs(difference) * 520));
     }
-    // if (i != end){
-    //   if (direction){
-    //   }
-    //   else{
-    //     $("#" + translator(i)).toggleClass("onTop")
-    //     $("#" + translator(i-1)).toggleClass("onTop");
-    //     $("#" + translator(i-1)).toggleClass("hidden")
-  
-    //     setTimeout(function(){
-    //       $("#" + translator(i-1)).toggleClass("flip");
-    //     }, 20);
-       
-        
-    //     setTimeout(function(){
-          
-    //       $("#" + translator(i)).toggleClass("hidden");
-    //       flipLogic(i-1, end)
-    //     }, 520);
-    //   }
-    // }
-    // else currentPage = i;
   }
-
-  // //tab on click
-  // $(".tab").on("click", function(){
-  //   flipHandler(translator($(this).attr('id')));
-  // })
 
   render(){
     return (
       <AppContainer>
-        <header className="App-header">
-          <ButtonsContainer>
-            <NavButtonImage onClick={() => {this.flipHandler('Home')}} src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/Portfolio%20Resources/tabHomeV2_nazdig.png"></NavButtonImage>
-            <div>
-              <NavButtonImage onClick={() => {this.flipHandler('About')}} src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/Portfolio%20Resources/tabAboutV2_jxzxiz.png"></NavButtonImage>
-              <NavButtonImage onClick={() => {this.flipHandler('Gallery')}} src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/Portfolio%20Resources/tabGalleryV2_q5tbtf.png"></NavButtonImage>
-              <NavButtonImage onClick={() => {this.flipHandler('Contact')}} src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/Portfolio%20Resources/tabContactV2_kj3pe1.png"></NavButtonImage>
-            </div>
-          </ButtonsContainer>
-        </header>
-        <PortfolioPadding>
-          <PortfolioCase>
-            <Page className={this.state.Home}>
-              <Home></Home>
-            </Page>
-            <Page className={this.state.About}>
-              <About></About>
-            </Page>
-            <Page className={this.state.Gallery}>
-              <Gallery></Gallery>
-            </Page>
-            <Page className={this.state.Contact}>
-              <Contact></Contact>
-            </Page>
-          </PortfolioCase>
-        </PortfolioPadding>
+        <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", height: "100%"}}>
+          <div>
+            <ButtonsContainer>
+              <NavButtonImage onClick={() => {this.flipHandler('Home')}} src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/Portfolio%20Resources/tabHomeV2_nazdig.png"></NavButtonImage>
+              <div>
+                <NavButtonImage onClick={() => {this.flipHandler('About')}} src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/Portfolio%20Resources/tabAboutV2_jxzxiz.png"></NavButtonImage>
+                <NavButtonImage onClick={() => {this.flipHandler('Gallery')}} src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/Portfolio%20Resources/tabGalleryV2_q5tbtf.png"></NavButtonImage>
+                <NavButtonImage onClick={() => {this.flipHandler('Contact')}} src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/Portfolio%20Resources/tabContactV2_kj3pe1.png"></NavButtonImage>
+              </div>
+            </ButtonsContainer>
+          </div>
+          <PortfolioPadding>
+            <PortfolioCase>
+              <Page className={this.state.Home}>
+                <Home></Home>
+              </Page>
+              <Page className={this.state.About}>
+                <About></About>
+              </Page>
+              <Page className={this.state.Gallery}>
+                <Gallery></Gallery>
+              </Page>
+              <Page className={this.state.Contact}>
+                <Contact></Contact>
+              </Page>
+            </PortfolioCase>
+          </PortfolioPadding>
+        </div>
       </AppContainer>
     );
   }
@@ -181,14 +157,14 @@ const ButtonsContainer = styled.div`
     margin: 0;
     padding: 0;
   }
-  width: 60%;
+  width: 70rem;
   background-color: black
 `
 const PortfolioPadding = styled.div`
   padding: 10px 10px 0 10px;
   background-color: #f0d38f;
-  width: 65%;
-  margin: auto;
+  width: 80rem;
+  border-radius: 0.7rem;
 `
 const PortfolioCase = styled.div`
   background-color: #f0d38f;
