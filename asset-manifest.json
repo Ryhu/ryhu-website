@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/ryhu-website/static/css/main.62e9a460.chunk.css",
-    "main.js": "/ryhu-website/static/js/main.bd77a497.chunk.js",
-    "main.js.map": "/ryhu-website/static/js/main.bd77a497.chunk.js.map",
+    "main.css": "/ryhu-website/static/css/main.42ed7d72.chunk.css",
+    "main.js": "/ryhu-website/static/js/main.64650a31.chunk.js",
+    "main.js.map": "/ryhu-website/static/js/main.64650a31.chunk.js.map",
     "runtime-main.js": "/ryhu-website/static/js/runtime-main.0553551a.js",
     "runtime-main.js.map": "/ryhu-website/static/js/runtime-main.0553551a.js.map",
     "static/css/2.8d660b98.chunk.css": "/ryhu-website/static/css/2.8d660b98.chunk.css",
-    "static/js/2.f9b28513.chunk.js": "/ryhu-website/static/js/2.f9b28513.chunk.js",
-    "static/js/2.f9b28513.chunk.js.map": "/ryhu-website/static/js/2.f9b28513.chunk.js.map",
+    "static/js/2.826ab41c.chunk.js": "/ryhu-website/static/js/2.826ab41c.chunk.js",
+    "static/js/2.826ab41c.chunk.js.map": "/ryhu-website/static/js/2.826ab41c.chunk.js.map",
     "index.html": "/ryhu-website/index.html",
-    "precache-manifest.66771895039d301298e891bc04064ccf.js": "/ryhu-website/precache-manifest.66771895039d301298e891bc04064ccf.js",
+    "precache-manifest.c4fdb4589d16be3b6a0ce2b6258d60e4.js": "/ryhu-website/precache-manifest.c4fdb4589d16be3b6a0ce2b6258d60e4.js",
     "service-worker.js": "/ryhu-website/service-worker.js",
     "static/css/2.8d660b98.chunk.css.map": "/ryhu-website/static/css/2.8d660b98.chunk.css.map",
-    "static/css/main.62e9a460.chunk.css.map": "/ryhu-website/static/css/main.62e9a460.chunk.css.map",
-    "static/js/2.f9b28513.chunk.js.LICENSE.txt": "/ryhu-website/static/js/2.f9b28513.chunk.js.LICENSE.txt",
+    "static/css/main.42ed7d72.chunk.css.map": "/ryhu-website/static/css/main.42ed7d72.chunk.css.map",
+    "static/js/2.826ab41c.chunk.js.LICENSE.txt": "/ryhu-website/static/js/2.826ab41c.chunk.js.LICENSE.txt",
     "static/media/logo.svg": "/ryhu-website/static/media/logo.ee7cd8ed.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.0553551a.js",
     "static/css/2.8d660b98.chunk.css",
-    "static/js/2.f9b28513.chunk.js",
-    "static/css/main.62e9a460.chunk.css",
-    "static/js/main.bd77a497.chunk.js"
+    "static/js/2.826ab41c.chunk.js",
+    "static/css/main.42ed7d72.chunk.css",
+    "static/js/main.64650a31.chunk.js"
   ]
 }
