@@ -100,11 +100,11 @@ class App extends Component {
         <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", height: "100%"}}>
           <div>
             <ButtonsContainer>
-              <NavButtonImage onClick={() => {this.flipHandler('Home')}} src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/Portfolio%20Resources/tabHomeV2_nazdig.png"></NavButtonImage>
+              <HomeButtonImage onClick={() => {this.flipHandler('Home')}} src="https://res.cloudinary.com/devvqi6h0/image/upload/v1597780834/portfolio%20resources/portfolioTabsHome.png"></HomeButtonImage>
               <div>
-                <NavButtonImage onClick={() => {this.flipHandler('About')}} src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/Portfolio%20Resources/tabAboutV2_jxzxiz.png"></NavButtonImage>
-                <NavButtonImage onClick={() => {this.flipHandler('Gallery')}} src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/Portfolio%20Resources/tabGalleryV2_q5tbtf.png"></NavButtonImage>
-                <NavButtonImage onClick={() => {this.flipHandler('Contact')}} src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/Portfolio%20Resources/tabContactV2_kj3pe1.png"></NavButtonImage>
+                <NavButtonImage onClick={() => {this.flipHandler('About')}} src="https://res.cloudinary.com/devvqi6h0/image/upload/v1597779219/portfolio%20resources/portfolioTabsAbout.png"></NavButtonImage>
+                <NavButtonImage onClick={() => {this.flipHandler('Gallery')}} src="https://res.cloudinary.com/devvqi6h0/image/upload/v1597780834/portfolio%20resources/portfolioTabsGallery.png"></NavButtonImage>
+                <NavButtonImage onClick={() => {this.flipHandler('Contact')}} src="https://res.cloudinary.com/devvqi6h0/image/upload/v1597780834/portfolio%20resources/portfolioTabsContact.png"></NavButtonImage>
               </div>
             </ButtonsContainer>
           </div>
@@ -132,22 +132,18 @@ class App extends Component {
 
 const Pages = ['Home', 'About', 'Gallery', 'Contact']
 
-const Thing = styled.div`
-  background-color: blue;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-
-  a {
-    margin: 0;
-    padding: 0;
-  }
-`
 const NavButtonImage = styled.img`
 // TODO: HARD CODED
   width: 150px;
   vertical-align: bottom;
 `
+
+const HomeButtonImage = styled.img`
+// TODO: HARD CODED
+  width: 300px;
+  vertical-align: bottom;
+`
+
 const ButtonsContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -157,13 +153,12 @@ const ButtonsContainer = styled.div`
     margin: 0;
     padding: 0;
   }
-  width: 70rem;
-  background-color: black
+  width: 75rem;
 `
 const PortfolioPadding = styled.div`
   padding: 10px 10px 0 10px;
   background-color: #f0d38f;
-  width: 80rem;
+  width: 75rem;
   border-radius: 0.7rem;
 `
 const PortfolioCase = styled.div`

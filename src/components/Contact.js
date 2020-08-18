@@ -1,24 +1,14 @@
 import React, { useState } from 'react';
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 import { faGithub, faCodepen, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 function Contact() {
-  constructor(props) {
-    super(props);
-    this.state = { 
-      username: '' 
-    };
-  }
 
 
-  
-
-
-  myChangeHandler = (event) => {
-    this.setState({username: event.target.value});
-  }
+  // myChangeHandler = (event) => {
+  //   this.setState({username: event.target.value});
+  // }
 
 
 
