@@ -49,24 +49,27 @@ function Contact() {
           </form>
         </ContactInputField>
 
-        <BusinessCard>
-          <p>
-            Ryan Hu
-          </p>
-          <p>
-            Fullstack Web Developer
-          </p>
-          <p>_________________________________</p>
-          <p>
-            Angular * React * Ruby on Rails
-          </p>
+        <Column>
+          <BusinessCard>
+            <p>
+              Ryan Hu
+            </p>
+            <p>
+              Fullstack Web Developer
+            </p>
+            <p>_________________________________</p>
+            <p>
+              Angular * React * Ruby on Rails
+            </p>
 
 
-        </BusinessCard>
+          </BusinessCard>
 
-        <EmailResumeBox>
-          If you would like my resume emailed to you, just type in your email below:
-        </EmailResumeBox>
+          <EmailResumeBox>
+            If you would like my resume emailed to you, just type in your email below:
+          </EmailResumeBox>
+        </Column>
+
 
       </PostitsContainer>
 
@@ -88,10 +91,30 @@ function Contact() {
 // a method of emailing other people my resume
 // links to my resume and my github and codepen
 
+const Column = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-left: 3rem;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+`
+
 const BusinessCard = styled.div`
-  width: 20rem;
+  width: 28rem;
+  height: 16rem;
+  background-color: #f8f2e4;
+  box-shadow: 1px 1px 3px;
+`
+
+const EmailResumeBox = styled.div`
+  box-shadow: 2px 2px 5px;
+  background-color: #1cabe3;
+  padding: 1rem;
+  width: 23rem;
   height: 10rem;
-  background-color: green;
+  font-size: 20px;
+  font-weight: bold;
 `
 
 const SendButton = styled.button`
@@ -108,6 +131,7 @@ const SendButton = styled.button`
 `
 const ContactText = styled.span`
   font-size: 1rem;
+  font-weight: bold;
 `
 
 const Whisper = styled.p`
@@ -141,6 +165,9 @@ const PostitsContainer = styled.div`
   display: flex;
   flex-direction: row;
   padding: 2rem;
+  height: 100%;
+  justify-content: space-around;
+  align-items: center;
 `
 
 const Footer = styled.div`
@@ -189,17 +216,6 @@ const ContactTextBox = styled.div`
   height: 23rem;
   font-size: 20px;
   font-weight: bold;
-`
-
-const EmailResumeBox = styled.div`
-  box-shadow: 2px 2px 5px;
-  background-color: #1cabe3;
-  padding: 1rem;
-  width: 23rem;
-  height: 23rem;
-  font-size: 20px;
-  font-weight: bold;
-  margin-left: 10rem;
 `
 
 export default Contact
