@@ -4,48 +4,70 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub, faCodepen, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 function Contact() {
-
-
-  // myChangeHandler = (event) => {
-  //   this.setState({username: event.target.value});
-  // }
-
-
-
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [message, setMessage] = useState("");
+    
+  const handleSubmit = (evt) => {
+      evt.preventDefault();
+      alert(`Submitting Name ${name + ' ' + email + ' ' + phone + ' ' + message}`);
+  }
+  
   return (
     <ContactContainer>
       <PostitsContainer>
         <ContactInputField>
-              {/* <form>
-            <h1>Hello {this.state.username}</h1>
-            <p>Enter your name:</p>
-            <input
+          <form onSubmit={handleSubmit} autocomplete="on">
+            <ContactText>Want someone to get some computer stuff done? Email me at Ryanhuuu@gmail.com, or shoot me a message below.</ContactText>
+            <Whisper>
+              (Which also goes to my email. All roads lead to my email.) 
+            </Whisper>
+            <LineInput
               type='text'
-              onChange={this.myChangeHandler}
+              name="first"
+              onChange={e => setName(e.target.value)}
+              autocomplete="name"
+              placeholder="Name"
             />
-            </form> */}
-          Name:<input id="nameField" type="text" class="lineInput"></input>
-          Email:<input id="emailField" type="text" class="lineInput"></input>
-          Phone:<input id="phoneField" type="text" class="lineInput"></input>
-          Message:<textarea rows="4" id="messageField" class="messageInput"></textarea>
-          <button id="sendButton">send</button>
+            <LineInput
+              type='text'
+              onChange={e => setEmail(e.target.value)}
+              placeholder="Email"
+            />
+            <LineInput
+              type='text'
+              onChange={e => setPhone(e.target.value)}
+              placeholder="Phone"
+            />
+            <MessageInput 
+              rows="4" 
+              onChange={e => setMessage(e.target.value)}
+              placeholder="Message"
+            ></MessageInput>
+            <SendButton>Send</SendButton>
+          </form>
         </ContactInputField>
 
+        <BusinessCard>
+          <p>
+            Ryan Hu
+          </p>
+          <p>
+            Fullstack Web Developer
+          </p>
+          <p>_________________________________</p>
+          <p>
+            Angular * React * Ruby on Rails
+          </p>
 
 
-
-
-
-
-
-        <ContactTextBox>
-          If you would like to contact me, please leave a name and either/or a phone number or email. I'll get back to you as soon as possible. If not, feel free to visit my social media sites below!
-          <i id="thanks">Thanks!</i>
-        </ContactTextBox>
+        </BusinessCard>
 
         <EmailResumeBox>
           If you would like my resume emailed to you, just type in your email below:
         </EmailResumeBox>
+
       </PostitsContainer>
 
       <Footer>
@@ -61,12 +83,52 @@ function Contact() {
   )
 };
 
-// this should include a link to my resume
+// My contact info: email, number, job title
 // a method of emailing me about people who want to contact me
 // a method of emailing other people my resume
 // links to my resume and my github and codepen
 
+const BusinessCard = styled.div`
+  width: 20rem;
+  height: 10rem;
+  background-color: green;
+`
 
+const SendButton = styled.button`
+  background-color:transparent;
+  border:1px solid #e6e600;
+  float:right;
+  font-size: 1.1rem;
+  margin: 0.3rem 0.3rem 0 0;
+  padding: 0 0.3rem 0 0.3rem;
+  :hover{
+    background-color:blue;
+    color:white;
+  }
+`
+const ContactText = styled.span`
+  font-size: 1rem;
+`
+
+const Whisper = styled.p`
+  font-size: .8rem;
+  font-style: italic;
+`
+
+const LineInput = styled.input`
+  background-color:transparent;
+  border:1px solid #e6e600;
+  font-size: 1.1rem;
+  width: 95%;
+  margin-bottom:20px;
+`
+
+const MessageInput = styled.textarea`
+  background-color:transparent;
+  border:1px solid #e6e600;
+  font-size: 1.1rem;
+  width: 95%;
+`
 
 const ContactContainer = styled.div`
   display: flex;
@@ -115,6 +177,7 @@ const ContactInputField = styled.div`
   border-right:5px solid #cccc00;
   border-bottom:5px solid #cccc00;
   display: block;
+  padding: 1rem;
   transition: .5s;
 `
 
@@ -136,7 +199,7 @@ const EmailResumeBox = styled.div`
   height: 23rem;
   font-size: 20px;
   font-weight: bold;
+  margin-left: 10rem;
 `
-
 
 export default Contact
