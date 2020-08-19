@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGithub, faCodepen, faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import { faGithub, faCodepen, faLinkedin, faAngular, faReact } from '@fortawesome/free-brands-svg-icons'
+import { faGem, faHome, faPhoneAlt, faPortrait, faEnvelope } from '@fortawesome/free-solid-svg-icons'
 
 function Contact() {
   const [name, setName] = useState("");
@@ -51,16 +52,43 @@ function Contact() {
 
         <Column>
           <BusinessCard>
-            <p>
-              Ryan Hu
-            </p>
-            <p>
-              Fullstack Web Developer
-            </p>
-            <p>_________________________________</p>
-            <p>
-              Angular * React * Ruby on Rails
-            </p>
+            <BusinessCardHeader>
+              <Bracket>{'{'}</Bracket>
+              <NameAndTitle>
+                <span id="name">
+                  Ryan Hu
+                </span>
+                <br />
+                <span id="title">
+                  Fullstack Web Developer
+                </span>
+              </NameAndTitle>
+              <Bracket>{'}'}</Bracket>
+            </BusinessCardHeader>
+            <BusinessCardBody>
+              <span id="line">____________________________________________</span>
+              <p id="languages">
+                <FontAwesomeIcon icon={faReact} />
+                React 
+                <FontAwesomeIcon icon={faAngular} />
+                Angular 
+                <FontAwesomeIcon icon={faGem} />
+                Ruby on Rails
+              </p>
+
+              {/* faHome, faPhoneAlt, faPortrait, faEnvelope */}
+              <BusinessCardContacts>
+                <div className="contact">
+                  <div className="row"> <FontAwesomeIcon icon={faPhoneAlt} /> (646) 251 1209 </div>
+                  <div className="row"> <FontAwesomeIcon icon={faEnvelope} /> Ryanhuuu@gmail.com </div>
+                </div>
+                <div className="contact">
+                  <div className="rowReverse"> New York, NY <FontAwesomeIcon icon={faHome} /> </div>
+                  <div className="rowReverse tinyPush"> www.ryhu.info <FontAwesomeIcon icon={faPortrait} /></div>
+                </div>
+              </BusinessCardContacts>
+
+            </BusinessCardBody>
 
 
           </BusinessCard>
@@ -90,6 +118,86 @@ function Contact() {
 // a method of emailing me about people who want to contact me
 // a method of emailing other people my resume
 // links to my resume and my github and codepen
+
+const BusinessCardContacts = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+
+  .contact{
+    display: flex;
+    flex-direction: column;
+
+
+    .row{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      text-align: right;
+      padding: 1.2rem 0 0 0.9rem;
+    }
+
+    .rowReverse{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      text-align: right;
+      justify-content: flex-end;
+      padding: 1.2rem 0.9rem 0 0;
+    }
+
+    .tinyPush{
+      margin-right: 0.18rem;
+    }
+  }
+
+  svg{
+    margin: 0 .4rem 0 .4rem;
+  }
+`
+
+const BusinessCardBody = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  #line{
+    margin-top: -1.3rem;
+  }
+
+  #languages{
+    margin: 0.3rem 0 0 0;
+  }
+
+  svg{
+    margin: 0 .6rem 0 .6rem;
+  }
+`
+
+const BusinessCardHeader = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+`
+
+const Bracket = styled.span`
+  font-size: 7rem;
+  margin: -1.5rem 1rem 0 1rem;
+`
+
+const NameAndTitle = styled.div`
+  padding-bottom: .7rem;
+  #name{
+    font-size: 3rem;
+  }
+
+  #title{
+    font-size: .8rem;
+  }
+`
 
 const Column = styled.div`
   display: flex;
