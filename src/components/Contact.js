@@ -2,54 +2,28 @@ import React, { useState } from 'react';
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub, faCodepen, faLinkedin, faAngular, faReact } from '@fortawesome/free-brands-svg-icons'
-import { faGem, faHome, faPhoneAlt, faPortrait, faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import { faGem, faHome, faPhoneAlt, faPortrait, faEnvelope, faFilePdf } from '@fortawesome/free-solid-svg-icons'
 
 function Contact() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
+  const [sendEmail, setSendEmail] = useState("");
     
   const handleSubmit = (evt) => {
       evt.preventDefault();
-      alert(`Submitting Name ${name + ' ' + email + ' ' + phone + ' ' + message}`);
+      alert(`feature not live yet!`);
+      // alert(`Submitting Name ${name + ' ' + email + ' ' + phone + ' ' + message}`);
+  }
+
+  const openResume = () => {
+    window.open('https://drive.google.com/file/d/1kkJnJU-95UgH6Di-0WpkLkPxO2WOYfvr/view?usp=sharing', '_blank');
   }
   
   return (
     <ContactContainer>
       <PostitsContainer>
-        <ContactInputField>
-          <form onSubmit={handleSubmit} autocomplete="on">
-            <ContactText>Want someone to get some computer stuff done? Email me at Ryanhuuu@gmail.com, or shoot me a message below.</ContactText>
-            <Whisper>
-              (Which also goes to my email. All roads lead to my email.) 
-            </Whisper>
-            <LineInput
-              type='text'
-              name="first"
-              onChange={e => setName(e.target.value)}
-              autocomplete="name"
-              placeholder="Name"
-            />
-            <LineInput
-              type='text'
-              onChange={e => setEmail(e.target.value)}
-              placeholder="Email"
-            />
-            <LineInput
-              type='text'
-              onChange={e => setPhone(e.target.value)}
-              placeholder="Phone"
-            />
-            <MessageInput 
-              rows="4" 
-              onChange={e => setMessage(e.target.value)}
-              placeholder="Message"
-            ></MessageInput>
-            <SendButton>Send</SendButton>
-          </form>
-        </ContactInputField>
-
         <Column>
           <BusinessCard>
             <BusinessCardHeader>
@@ -87,18 +61,59 @@ function Contact() {
                   <div className="rowReverse tinyPush"> www.ryhu.info <FontAwesomeIcon icon={faPortrait} /></div>
                 </div>
               </BusinessCardContacts>
-
             </BusinessCardBody>
-
-
           </BusinessCard>
-
-          <EmailResumeBox>
-            If you would like my resume emailed to you, just type in your email below:
-          </EmailResumeBox>
+          <Row>
+            <EmailResumeBox>
+              If you would like my resume emailed to you, just type in your email below:
+              <SendEmailLineInput
+                type='text'
+                onChange={e => setSendEmail(e.target.value)}
+                placeholder="Your Email"
+              />
+            </EmailResumeBox>
+            <MyResumeBox>
+              <div className="resumeBorder" onClick={openResume}>
+                <FontAwesomeIcon icon={faFilePdf} />
+                <p>Resume</p>
+              </div>
+            </MyResumeBox>
+          </Row>
         </Column>
 
-
+        <ContactInputField>
+          <form onSubmit={handleSubmit} autocomplete="on">
+            <ContactText>Want someone to get some computer stuff done? Email me at Ryanhuuu@gmail.com, or shoot me a message below.</ContactText>
+            <Whisper>
+              (Which also goes to my email. All roads lead to my email.) 
+            </Whisper>
+            <LineInput
+              type='text'
+              name="first"
+              onChange={e => setName(e.target.value)}
+              autocomplete="name"
+              placeholder="Name"
+            />
+            <LineInput
+              type='text'
+              onChange={e => setEmail(e.target.value)}
+              autocomplete="email"
+              placeholder="Email"
+            />
+            <LineInput
+              type='text'
+              onChange={e => setPhone(e.target.value)}
+              autocomplete="phone"
+              placeholder="Phone"
+            />
+            <MessageInput 
+              rows="4" 
+              onChange={e => setMessage(e.target.value)}
+              placeholder="Message"
+            ></MessageInput>
+            <SendButton>Send</SendButton>
+          </form>
+        </ContactInputField>
       </PostitsContainer>
 
       <Footer>
@@ -157,6 +172,12 @@ const BusinessCardContacts = styled.div`
   }
 `
 
+const Row = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+`
+
 const BusinessCardBody = styled.div`
   display: flex;
   flex-direction: column;
@@ -189,13 +210,13 @@ const Bracket = styled.span`
 `
 
 const NameAndTitle = styled.div`
-  padding-bottom: .7rem;
+  padding-bottom: .5rem;
   #name{
     font-size: 3rem;
   }
 
   #title{
-    font-size: .8rem;
+    font-size: 1rem;
   }
 `
 
@@ -215,6 +236,45 @@ const BusinessCard = styled.div`
   box-shadow: 1px 1px 3px;
 `
 
+const MyResumeBox = styled.div`
+  box-shadow: 2px 2px 5px;
+  background-color: #fea444;
+  padding: 1rem;
+  width: 10rem;
+  height: 10rem;
+  margin-left: 1rem;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+
+  :hover{
+    cursor: pointer;
+  }
+
+  .resumeBorder{
+    border: 5px solid #feb144;
+    border-style: outset;
+
+    :hover{
+      cursor: pointer;
+      border-style: inset;
+      background-color:  #fe9c34;
+    }
+
+    svg{
+      margin-top: 1rem;
+      font-size 4rem;
+    }
+  
+    p{
+      font-size: 2rem;
+      margin-top: 1rem;
+      margin-bottom: .7rem;
+    }
+  }
+
+`
+
 const EmailResumeBox = styled.div`
   box-shadow: 2px 2px 5px;
   background-color: #1cabe3;
@@ -223,6 +283,10 @@ const EmailResumeBox = styled.div`
   height: 10rem;
   font-size: 20px;
   font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
 `
 
 const SendButton = styled.button`
@@ -247,12 +311,23 @@ const Whisper = styled.p`
   font-style: italic;
 `
 
+const SendEmailLineInput = styled.input`
+  background-color:transparent;
+  border:1px solid #199acc;
+  font-size: 1.3rem;
+  margin-top:20px;
+  width: 100%;
+  width: 95%;
+  padding: 0.2rem;
+`
+
 const LineInput = styled.input`
   background-color:transparent;
   border:1px solid #e6e600;
   font-size: 1.1rem;
   width: 95%;
   margin-bottom:20px;
+  padding: 0.2rem;
 `
 
 const MessageInput = styled.textarea`
@@ -308,22 +383,12 @@ const ContactInputField = styled.div`
   font-size: 18px;
   background-color:yellow;
   width: 23rem;
-  height: 23rem;
+  height: 24rem;
   border-right:5px solid #cccc00;
   border-bottom:5px solid #cccc00;
   display: block;
   padding: 1rem;
   transition: .5s;
-`
-
-const ContactTextBox = styled.div`
-  box-shadow: 2px 2px 5px;
-  background-color: #1cabe3;
-  padding: 1rem;
-  width: 23rem;
-  height: 23rem;
-  font-size: 20px;
-  font-weight: bold;
 `
 
 export default Contact
