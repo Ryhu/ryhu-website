@@ -52,7 +52,6 @@ const ThumbnailImage = styled.img`
 `
 
 const DescriptionPopperTitle = styled.div`
-  text-align: center;
   font-weight: bold;
   font-size: 1.2rem;
   margin-bottom: .5rem;
@@ -61,7 +60,6 @@ const DescriptionPopperTitle = styled.div`
 `
 
 const DescriptionPopperText = styled.div`
-  text-align: center;
 `
 
 const DescriptionPopper = styled.div`
