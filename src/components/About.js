@@ -25,12 +25,11 @@ function About() {
       <ContentContainer>
         <div className={ (tab === 'summary' ? '' : 'hidden') }>
           <StoryContainer>
+            I'm a software engineer based in New York, speciailizing in building websites.
           </StoryContainer>
         </div>
         <div className={ (tab === 'heart' ? '' : 'hidden') }>
           <StoryContainer>
-            I'm a software engineer based in New York, speciailizing in building websites.
-
             my love of code stems from a love of automation; my first coding language was neither java or javascript, but autohotkey (C++?).
             At a certain point in my life, I was working in a data entry position. I had to take a (quite literal) room of files, and process them into our legal software. 
             After realizing that the files were available online, I made the gamble that I could probably automate the process so my next few weeks would be much less tedious.
