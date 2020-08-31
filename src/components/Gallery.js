@@ -84,10 +84,6 @@ const ProjectRow = styled.div`
   flex-direction: row;
   justify-content: space-around;
   margin: 3rem;
-
-  .tooltip-container{
-    border-width: 1rem;
-  }
 `
 
 const SimonDescription = (
