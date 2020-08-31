@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/ryhu-website/precache-manifest.488336070490bb9ea57f1628dd04df75.js"
+  "/ryhu-website/precache-manifest.d42dabfccdcf0f4e519c4cc1b41b13c1.js"
 );
 
 self.addEventListener('message', (event) => {
