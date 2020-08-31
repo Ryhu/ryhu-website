@@ -163,7 +163,4 @@ const Tooltip = ({children, tooltip, hideArrow, ...props}) => (
   </TooltipTrigger>
 );
 
-// https://medium.com/@cgroom/a-software-engineers-one-page-portfolio-4f85ab8a20d1
-
-
 export default About

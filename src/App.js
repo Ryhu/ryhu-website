@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import styled from 'styled-components'
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
 import {Link} from "react-router-dom";
 import Home from './components/Home';
 import About from './components/About';
 import Gallery from './components/Gallery';
 import Contact from './components/Contact';
-import Error from './components/Error';
 
 class App extends Component {
   constructor(){
@@ -55,7 +52,7 @@ class App extends Component {
     }
     state[clickedPage] =  'active flip';
     state[currentPage] =  '';
-    this.setState(state, console.log(state))
+    this.setState(state)
     setTimeout(() => {
       this.setState({
         [clickedPage]: 'active',
@@ -73,7 +70,6 @@ class App extends Component {
   flipHandler(clickedPage){
     if (!this.state.disabled && clickedPage != this.state.currentPage){
       let difference = Pages.indexOf(this.state.currentPage) - Pages.indexOf(clickedPage)
-      console.log(difference)
 
       if (difference < 0){
         this.forward(Math.abs(difference), this.state.currentPage, Pages[Pages.indexOf(this.state.currentPage)+1])
@@ -94,10 +90,25 @@ class App extends Component {
     }
   }
 
+  wheelHandler(evt){
+    if(evt.deltaY >= 0){
+      let newPage = Pages[Pages.indexOf(this.state.currentPage) - 1]
+      if (newPage){
+        this.flipHandler(newPage)
+      }
+    }
+    else if(evt.deltaY < 0){
+      let newPage = Pages[Pages.indexOf(this.state.currentPage) + 1]
+      if (newPage){
+        this.flipHandler(newPage)
+      }
+    }
+  }
+
   render(){
     return (
       <AppContainer>
-        <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", height: "100%"}}>
+        <div onWheel={(e) => this.wheelHandler(e)} style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", height: "100%"}}>
           <div>
             <ButtonsContainer>
               <HomeButtonImage onClick={() => {this.flipHandler('Home')}} src="https://res.cloudinary.com/devvqi6h0/image/upload/v1597780834/portfolio%20resources/portfolioTabsHome.png"></HomeButtonImage>
