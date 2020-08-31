@@ -54,7 +54,7 @@ function Contact() {
               <BusinessCardContacts>
                 <div className="contact">
                   <div className="row"> <FontAwesomeIcon icon={faPhoneAlt} /> (646) 251 1209 </div>
-                  <div className="row"> <FontAwesomeIcon icon={faEnvelope} /> Ryanhuuu@gmail.com </div>
+                  <div className="row"> <FontAwesomeIcon icon={faEnvelope} /> ryanhuuu@gmail.com </div>
                 </div>
                 <div className="contact">
                   <div className="rowReverse"> New York, NY <FontAwesomeIcon icon={faHome} /> </div>
