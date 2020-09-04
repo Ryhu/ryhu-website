@@ -10,17 +10,71 @@ function Contact() {
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
   const [sendEmail, setSendEmail] = useState("");
-    
-  const handleSubmit = (evt) => {
-      evt.preventDefault();
-      alert(`feature not live yet!`);
-      // alert(`Submitting Name ${name + ' ' + email + ' ' + phone + ' ' + message}`);
-  }
 
   const openResume = () => {
     window.open('https://drive.google.com/file/d/1kkJnJU-95UgH6Di-0WpkLkPxO2WOYfvr/view?usp=sharing', '_blank');
   }
-  
+
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    fetch('http://localhost:3000/self', {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        phone: phone,
+        message: message,
+      })
+    })
+      .then(
+        function(response) {
+          if (response.status !== 200) {
+            console.log('Looks like there was a problem. Status Code: ' +
+              response.status);
+            return;
+          }
+
+          response.json().then(function(data) {
+            console.log(data);
+          });
+        }
+      )
+      .catch(function(err) {
+        console.log('Fetch Error :-S', err);
+      });
+  }
+
+  const sendResume = () => {
+    fetch('http://localhost:3000/other', {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        "target_email": sendEmail
+      })
+    })
+      .then(
+        function(response) {
+          if (response.status !== 200) {
+            console.log('Looks like there was a problem. Status Code: ' +
+              response.status);
+            return;
+          }
+
+          response.json().then(function(data) {
+            console.log(data);
+          });
+        }
+      )
+      .catch(function(err) {
+        console.log('Fetch Error :-S', err);
+      });
+  }
+
   return (
     <ContactContainer>
       <PostitsContainer>
@@ -71,6 +125,7 @@ function Contact() {
                 onChange={e => setSendEmail(e.target.value)}
                 placeholder="Your Email"
               />
+              <SendButtonBlue onClick={sendResume}>Send</SendButtonBlue>
             </EmailResumeBox>
             <MyResumeBox>
               <div className="resumeBorder" onClick={openResume}>
@@ -128,11 +183,6 @@ function Contact() {
     </ContactContainer>
   )
 };
-
-// My contact info: email, number, job title
-// a method of emailing me about people who want to contact me
-// a method of emailing other people my resume
-// links to my resume and my github and codepen
 
 const BusinessCardContacts = styled.div`
   display: flex;
@@ -301,6 +351,20 @@ const SendButton = styled.button`
     color:white;
   }
 `
+
+const SendButtonBlue = styled.button`
+  background-color:transparent;
+  border:1px solid #1aa0d4;
+  float:right;
+  font-size: 1.1rem;
+  margin: 0.3rem 0.3rem 0 0;
+  padding: 0 0.3rem 0 0.3rem;
+  :hover{
+    background-color:black;
+    color:white;
+  }
+`
+
 const ContactText = styled.span`
   font-size: 1rem;
   font-weight: bold;
