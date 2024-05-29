@@ -39,6 +39,7 @@
   transform: rotateX(-85deg);
   opacity: 0;
   z-index: 2;
+  height: 100%;
 }
 
 .textBox{
