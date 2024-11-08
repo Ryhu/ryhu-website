@@ -250,6 +250,7 @@ const BusinessCardBody = styled.div`
     justify-content: space-between;
     font-size: 14px;
     align-items: normal;
+    width: 80%;
 
     .contact {
       display: flex;
@@ -281,6 +282,8 @@ const BusinessCardBody = styled.div`
   }
 
   @media screen and (max-width: 950px) {
+    .contacts {
+      width: 100%
   }
 `;
 
