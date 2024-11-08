@@ -160,29 +160,32 @@ function Contact() {
           </Row> */}
         </Column>
 
-        <ContactInputField>
+        <ContactMePostit>
           <form onSubmit={handleSubmit} autocomplete="on">
-            <ContactText>
+            <span className="contactMeFlavorText">
               Want someone to get some computer stuff done? Email me at
               Ryanhuuu@gmail.com, or shoot me a message below.
-            </ContactText>
-            <Whisper>
+            </span>
+            <div className="contactMeSubtext">
               (Which also goes to my email. All roads lead to my email.)
-            </Whisper>
-            <LineInput
+            </div>
+            <input
+              className="textInput"
               type="text"
               name="first"
               onChange={(e) => setName(e.target.value)}
               autocomplete="name"
               placeholder="Name"
             />
-            <LineInput
+            <input
+              className="textInput"
               type="text"
               onChange={(e) => setEmail(e.target.value)}
               autocomplete="email"
               placeholder="Email"
             />
-            <LineInput
+            <input
+              className="textInput"
               type="text"
               onChange={(e) => setPhone(e.target.value)}
               autocomplete="phone"
@@ -194,7 +197,7 @@ function Contact() {
               placeholder="Message"></MessageInput>
             <SendButton>Send</SendButton>
           </form>
-        </ContactInputField>
+        </ContactMePostit>
       </PostitsContainer>
 
       <Footer>
@@ -432,14 +435,9 @@ const SendButtonBlue = styled.button`
   }
 `;
 
-const ContactText = styled.span`
+const contactMeFlavorText = styled.span`
   font-size: 1rem;
   font-weight: bold;
-`;
-
-const Whisper = styled.p`
-  font-size: 0.8rem;
-  font-style: italic;
 `;
 
 const SendEmailLineInput = styled.input`
@@ -449,15 +447,6 @@ const SendEmailLineInput = styled.input`
   margin-top: 20px;
   width: 100%;
   width: 95%;
-  padding: 0.2rem;
-`;
-
-const LineInput = styled.input`
-  background-color: transparent;
-  border: 1px solid #e6e600;
-  font-size: 1.1rem;
-  width: 95%;
-  margin-bottom: 20px;
   padding: 0.2rem;
 `;
 
@@ -509,9 +498,9 @@ const Icons = styled.a`
   }
 `;
 
-const ContactInputField = styled.div`
+const ContactMePostit = styled.div`
   box-shadow: 2px 2px 5px;
-  font-size: 18px;
+  font-size: 10px;
   background-color: yellow;
   width: 23rem;
   height: 24rem;
@@ -520,6 +509,64 @@ const ContactInputField = styled.div`
   display: block;
   padding: 1rem;
   transition: 0.5s;
+
+  .contactMeFlavorText {
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  .contactMeSubtext {
+    font-size: 10px;
+    font-style: italic;
+  }
+
+  .textInput {
+    background-color: transparent;
+    border: 1px solid #e6e600;
+    font-size: 1.1rem;
+    width: 95%;
+    margin-bottom: 2px;
+    padding: 0.2rem;
+  }
+
+  .messageInput {
+    background-color: transparent;
+    border: 1px solid #e6e600;
+    font-size: 1.1rem;
+    width: 95%;
+  }
+
+  @media screen and (max-width: 950px) {
+    width: 20rem;
+    height: 12rem;
+    padding: 0.25rem;
+    overflow: none;
+
+    .contactMeFlavorText {
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .contactMeSubtext {
+      font-size: 10px;
+      font-style: italic;
+    }
+
+    .textInput {
+      background-color: transparent;
+      border: 1px solid #e6e600;
+      font-size: 12px;
+      width: 95%;
+      padding: 0.1rem;
+    }
+
+    .messageInput {
+      background-color: transparent;
+      border: 1px solid #e6e600;
+      font-size: 1.1rem;
+      width: 95%;
+    }
+  }
 `;
 
 export default Contact;
