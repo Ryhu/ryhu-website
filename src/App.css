@@ -8,6 +8,10 @@
   background-color: black;
 }
 
+body{
+  overscroll-behavior: none;
+}
+
 
 .App-header {
   display: flex;
