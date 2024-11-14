@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import tabGap from "./images/tabGapSeeThrough.png";
+import tabGap from "../images/tabGapSeeThrough.png";
 
 function Home() {
   return (
