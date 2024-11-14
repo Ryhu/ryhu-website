@@ -81,18 +81,6 @@ body{
 }
 
 
-.lineInput,.messageInput{
-  background-color:transparent;
-  border:none;
-  margin-bottom:20px;
-  width:300px;
-  border:1px solid #e6e600;
-}
-.messageInput{
-  margin-top:7px;
-  width:360px;
-}
-
 #sendButton{
   background-color:transparent;
   border:1px solid #e6e600;

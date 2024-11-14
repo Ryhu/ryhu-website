@@ -92,56 +92,53 @@ function Contact() {
   return (
     <ContactContainer>
       <PostitsContainer>
-        <Column>
-          <BusinessCard>
-            <BusinessCardHeader>
-              <span className="bracket">{"{"}</span>
-              <div className="nameAndTitle">
-                <span id="name">Ryan Hu</span>
-                <br />
-                <span id="title">Fullstack Web Developer</span>
-              </div>
-              <span className="bracket">{"}"}</span>
-            </BusinessCardHeader>
-            <BusinessCardBody>
-              <hr></hr>
-              <p id="languages">
-                <FontAwesomeIcon icon={faReact} />
-                React
-                <FontAwesomeIcon icon={faAngular} />
-                Angular
-                <FontAwesomeIcon icon={faGem} />
-                Ruby on Rails
-              </p>
+        <BusinessCard>
+          <BusinessCardHeader>
+            <span className="bracket">{"{"}</span>
+            <div className="nameAndTitle">
+              <span id="name">Ryan Hu</span>
+              <br />
+              <span id="title">Fullstack Web Developer</span>
+            </div>
+            <span className="bracket">{"}"}</span>
+          </BusinessCardHeader>
+          <BusinessCardBody>
+            <hr></hr>
+            <p id="languages">
+              <FontAwesomeIcon icon={faReact} />
+              React
+              <FontAwesomeIcon icon={faAngular} />
+              Angular
+              <FontAwesomeIcon icon={faGem} />
+              Ruby on Rails
+            </p>
 
-              {/* faHome, faPhoneAlt, faPortrait, faEnvelope */}
-              <div className="contacts">
-                <div className="contact">
-                  <div className="row">
-                    {" "}
-                    <FontAwesomeIcon icon={faPhoneAlt} /> (646) 251 1209{" "}
-                  </div>
-                  <div className="row">
-                    {" "}
-                    <FontAwesomeIcon
-                      icon={faEnvelope}
-                    /> ryanhuuu@gmail.com{" "}
-                  </div>
+            {/* faHome, faPhoneAlt, faPortrait, faEnvelope */}
+            <div className="contacts">
+              <div className="contact">
+                <div className="row">
+                  {" "}
+                  <FontAwesomeIcon icon={faPhoneAlt} /> (646) 251 1209{" "}
                 </div>
-                <div className="contact">
-                  <div className="rowReverse">
-                    {" "}
-                    New York, NY <FontAwesomeIcon icon={faHome} />{" "}
-                  </div>
-                  <div className="rowReverse tinyPush">
-                    {" "}
-                    www.ryhu.info <FontAwesomeIcon icon={faPortrait} />
-                  </div>
+                <div className="row">
+                  {" "}
+                  <FontAwesomeIcon icon={faEnvelope} /> ryanhuuu@gmail.com{" "}
                 </div>
               </div>
-            </BusinessCardBody>
-          </BusinessCard>
-          {/* <Row>
+              <div className="contact">
+                <div className="rowReverse">
+                  {" "}
+                  New York, NY <FontAwesomeIcon icon={faHome} />{" "}
+                </div>
+                <div className="rowReverse tinyPush">
+                  {" "}
+                  www.ryhu.info <FontAwesomeIcon icon={faPortrait} />
+                </div>
+              </div>
+            </div>
+          </BusinessCardBody>
+        </BusinessCard>
+        {/* <Row>
             <EmailResumeBox>
               If you would like my resume emailed to you, just type in your email below:
               <SendEmailLineInput
@@ -158,7 +155,6 @@ function Contact() {
               </div>
             </MyResumeBox>
           </Row> */}
-        </Column>
 
         <ContactMePostit>
           <form onSubmit={handleSubmit} autocomplete="on">
@@ -191,19 +187,21 @@ function Contact() {
               autocomplete="phone"
               placeholder="Phone"
             />
-            <MessageInput
+            <textarea
+              className="messageInput"
               rows="4"
               onChange={(e) => setMessage(e.target.value)}
-              placeholder="Message"></MessageInput>
+              placeholder="Message"
+            />
             <SendButton>Send</SendButton>
           </form>
         </ContactMePostit>
       </PostitsContainer>
 
       <Footer>
-        <Author>page created by Ryan Hu</Author>
+        <div className="authorText">page created by Ryan Hu</div>
         <IconsContainer>
-          You can also find me on:
+          <p>You can also find me on:</p>
           <Icons href="https://github.com/Ryhu/" target="_blank">
             <FontAwesomeIcon icon={faGithub} />
           </Icons>
@@ -450,13 +448,6 @@ const SendEmailLineInput = styled.input`
   padding: 0.2rem;
 `;
 
-const MessageInput = styled.textarea`
-  background-color: transparent;
-  border: 1px solid #e6e600;
-  font-size: 1.1rem;
-  width: 95%;
-`;
-
 const ContactContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -467,10 +458,10 @@ const ContactContainer = styled.div`
 const PostitsContainer = styled.div`
   display: flex;
   flex-direction: row;
-  padding: 2rem;
   height: 100%;
   justify-content: space-around;
   align-items: center;
+  padding: 0 1rem;
 `;
 
 const Footer = styled.div`
@@ -478,15 +469,25 @@ const Footer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   color: green;
+
+  .authorText {
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 1rem;
+    padding-left: 0.5rem;
+  }
 `;
 
-const Author = styled.p`
-  padding-top: 2rem;
+const Author = styled.span`
   padding-left: 1rem;
   font-style: italic;
+  text-align: bottom;
 `;
 
 const IconsContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
   margin-right: 0.5rem;
 `;
 
@@ -500,7 +501,7 @@ const Icons = styled.a`
 
 const ContactMePostit = styled.div`
   box-shadow: 2px 2px 5px;
-  font-size: 10px;
+  font-size: 1rem;
   background-color: yellow;
   width: 23rem;
   height: 24rem;
@@ -508,15 +509,15 @@ const ContactMePostit = styled.div`
   border-bottom: 5px solid #cccc00;
   display: block;
   padding: 1rem;
-  transition: 0.5s;
+  margin-left: 1rem;
 
   .contactMeFlavorText {
-    font-size: 12px;
+    font-size: 1rem;
     font-weight: bold;
   }
 
   .contactMeSubtext {
-    font-size: 10px;
+    font-size: 0.75rem;
     font-style: italic;
   }
 
@@ -525,7 +526,7 @@ const ContactMePostit = styled.div`
     border: 1px solid #e6e600;
     font-size: 1.1rem;
     width: 95%;
-    margin-bottom: 2px;
+    margin-top: 0.5rem;
     padding: 0.2rem;
   }
 
@@ -534,13 +535,17 @@ const ContactMePostit = styled.div`
     border: 1px solid #e6e600;
     font-size: 1.1rem;
     width: 95%;
+    margin-top: 0.5rem;
+    padding: 0.2rem;
   }
 
   @media screen and (max-width: 950px) {
+    margin-top: 1rem;
     width: 20rem;
-    height: 12rem;
+    height: 15rem;
     padding: 0.25rem;
     overflow: none;
+    font-size: 10px;
 
     .contactMeFlavorText {
       font-size: 12px;
@@ -550,6 +555,7 @@ const ContactMePostit = styled.div`
     .contactMeSubtext {
       font-size: 10px;
       font-style: italic;
+      margin-bottom: 5px;
     }
 
     .textInput {
@@ -558,13 +564,15 @@ const ContactMePostit = styled.div`
       font-size: 12px;
       width: 95%;
       padding: 0.1rem;
+      margin-bottom: 0 0 5px 0;
     }
 
     .messageInput {
       background-color: transparent;
       border: 1px solid #e6e600;
-      font-size: 1.1rem;
+      font-size: 12px;
       width: 95%;
+      padding: 0.2rem;
     }
   }
 `;
