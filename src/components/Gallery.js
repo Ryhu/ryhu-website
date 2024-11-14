@@ -3,6 +3,11 @@ import styled from "styled-components";
 import TooltipTrigger from "react-popper-tooltip";
 import "react-popper-tooltip/dist/styles.css";
 
+import ticTacToeMini from "../images/TicTacToeMini.png";
+import calculatorMini from "../images/CalculatorMini.png";
+import simonMini from "../images/SimonMini.png";
+import pomodoroMini from "../images/PomodoroMini.png";
+
 function Gallery() {
   const tooltipHelper = (projectName) => {
     return (
@@ -145,7 +150,7 @@ function Gallery() {
             placement="bottom"
             tooltip={tooltipHelper("simon")}
             delayShow="150">
-            <ThumbnailImage src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/minis/SimonMini_ybnppw.png"></ThumbnailImage>
+            <ThumbnailImage src={simonMini}></ThumbnailImage>
           </Tooltip>
         </a>
         <a href="https://codepen.io/Ryhu/full/ZJgvMv/" target="_blank">
@@ -153,7 +158,7 @@ function Gallery() {
             placement="bottom"
             tooltip={tooltipHelper("pomodoro")}
             delayShow="150">
-            <ThumbnailImage src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/minis/PomodoroMini_ka4sfc.png"></ThumbnailImage>
+            <ThumbnailImage src={pomodoroMini}></ThumbnailImage>
           </Tooltip>
         </a>
         <a href="https://codepen.io/Ryhu/full/zwmbgp/" target="_blank">
@@ -161,7 +166,7 @@ function Gallery() {
             placement="top"
             tooltip={tooltipHelper("calculator")}
             delayShow="150">
-            <ThumbnailImage src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/minis/CalculatorMini_xw27y0.png"></ThumbnailImage>
+            <ThumbnailImage src={calculatorMini}></ThumbnailImage>
           </Tooltip>
         </a>
         <a href="https://codepen.io/Ryhu/full/yXdNwE/" target="_blank">
@@ -169,7 +174,7 @@ function Gallery() {
             placement="top"
             tooltip={tooltipHelper("ticTacToe")}
             delayShow="150">
-            <ThumbnailImage src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/minis/TicTacToeMini_pp4uvj.png"></ThumbnailImage>
+            <ThumbnailImage src={ticTacToeMini}></ThumbnailImage>
           </Tooltip>
         </a>
       </GalleryContent>
