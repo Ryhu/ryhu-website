@@ -8,7 +8,7 @@ function Home() {
       <HomeHeaderGap src={tabGap}></HomeHeaderGap>
       <HomeBackground>
         <TitleText>Hu, Ryan</TitleText>
-        <p>website currently under construction, please excuse the mess!</p>
+        <p>website currently under construction, please excuse the mess!!!!</p>
       </HomeBackground>
     </>
   );
