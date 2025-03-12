@@ -134,13 +134,21 @@ function Gallery() {
   return (
     <>
       <GalleryHeader>
-        <p>Gallery</p>
-        <p>
+        {/* TODO: p/header tags here add a weird margin, figure it out */}
+        <div>Gallery</div>
+
+        <div>
           Mouse over the images to get more details, click to see a live demo
-        </p>
+        </div>
+        {/* <p>
+          Mouse over the images to get more details, click to see a live demo
+        </p> */}
       </GalleryHeader>
       <GalleryContent>
-        <a href="https://codepen.io/Ryhu/full/eGeXbv/" target="_blank">
+        <a
+          href="https://codepen.io/Ryhu/full/eGeXbv/"
+          target="_blank"
+          rel="noopener noreferrer">
           <Tooltip
             placement="bottom"
             tooltip={tooltipHelper("simon")}
@@ -148,7 +156,10 @@ function Gallery() {
             <ThumbnailImage src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/minis/SimonMini_ybnppw.png"></ThumbnailImage>
           </Tooltip>
         </a>
-        <a href="https://codepen.io/Ryhu/full/ZJgvMv/" target="_blank">
+        <a
+          href="https://codepen.io/Ryhu/full/ZJgvMv/"
+          target="_blank"
+          rel="noopener noreferrer">
           <Tooltip
             placement="bottom"
             tooltip={tooltipHelper("pomodoro")}
@@ -156,7 +167,10 @@ function Gallery() {
             <ThumbnailImage src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/minis/PomodoroMini_ka4sfc.png"></ThumbnailImage>
           </Tooltip>
         </a>
-        <a href="https://codepen.io/Ryhu/full/zwmbgp/" target="_blank">
+        <a
+          href="https://codepen.io/Ryhu/full/zwmbgp/"
+          target="_blank"
+          rel="noopener noreferrer">
           <Tooltip
             placement="top"
             tooltip={tooltipHelper("calculator")}
@@ -164,7 +178,10 @@ function Gallery() {
             <ThumbnailImage src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/minis/CalculatorMini_xw27y0.png"></ThumbnailImage>
           </Tooltip>
         </a>
-        <a href="https://codepen.io/Ryhu/full/yXdNwE/" target="_blank">
+        <a
+          href="https://codepen.io/Ryhu/full/yXdNwE/"
+          target="_blank"
+          rel="noopener noreferrer">
           <Tooltip
             placement="top"
             tooltip={tooltipHelper("ticTacToe")}
@@ -194,7 +211,7 @@ const GalleryHeader = styled.div`
 const ThumbnailImage = styled.img`
   //portrait
   @media screen and (max-width: 640px) and (max-height: 950px) {
-    height: 15vh;
+    // height: 15vh;
     margin-left: 20vw;
     margin-right: 20vw;
     margin-bottom: 0.5rem;

@@ -161,7 +161,7 @@ function Contact() {
         </Column>
 
         <ContactMePostit>
-          <form onSubmit={handleSubmit} autocomplete="on">
+          <form onSubmit={handleSubmit} autoComplete="on">
             <span className="contactMeFlavorText">
               Want someone to get some computer stuff done? Email me at
               Ryanhuuu@gmail.com, or shoot me a message below.
@@ -174,21 +174,21 @@ function Contact() {
               type="text"
               name="first"
               onChange={(e) => setName(e.target.value)}
-              autocomplete="name"
+              autoComplete="name"
               placeholder="Name"
             />
             <input
               className="textInput"
               type="text"
               onChange={(e) => setEmail(e.target.value)}
-              autocomplete="email"
+              autoComplete="email"
               placeholder="Email"
             />
             <input
               className="textInput"
               type="text"
               onChange={(e) => setPhone(e.target.value)}
-              autocomplete="phone"
+              autoComplete="phone"
               placeholder="Phone"
             />
             <MessageInput

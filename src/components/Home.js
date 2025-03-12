@@ -29,10 +29,11 @@ const HomeHeaderGap = styled.img`
 
 const HomeContent = styled.div`
   // TODO: fix this
-  margin-top: 25vh;
+  height: calc(100% - 70px);
   position: relative;
   background-color: #ffdead;
-  justify-content: center;
+  flex-direction: column;
+  align-content: center;
 `;
 
 const TitleText = styled.div`
