@@ -151,7 +151,7 @@ class App extends Component {
           </ButtonsContainer>
           <PortfolioOuterShell>
             <PageContainer>
-              <Page className={this.state.Home}>
+              <Page className={this.state.Home + " homeCover"}>
                 <Home></Home>
               </Page>
               <Page className={this.state.About}>
@@ -236,7 +236,6 @@ const PortfolioOuterShell = styled.div`
   padding: 10px 10px 0 10px;
   background-color: #f0d38f;
   border-radius: 0.7rem;
-  // overflow: hidden;
 
   height: 90%;
   // height: calc(100% - 40px);
@@ -271,7 +270,6 @@ const Page = styled.div`
   backface-visibility: hidden;
   transition: transform 0.5s, opacity 0.5s;
   transform-origin: bottom;
-  // overflow: hidden;
 
   // @media (min-width:600px) {
   //   height: calc(100% - 44px);
@@ -284,6 +282,7 @@ const AppContainer = styled.div`
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-color: black;
+  overflow: hidden;
 `;
 
 export default App;
