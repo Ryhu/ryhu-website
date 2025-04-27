@@ -132,7 +132,7 @@ function Gallery() {
   );
 
   return (
-    <>
+    <GalleryContainer>
       <GalleryHeader>
         {/* TODO: p/header tags here add a weird margin, figure it out */}
         <div>Gallery</div>
@@ -153,7 +153,7 @@ function Gallery() {
             placement="bottom"
             tooltip={tooltipHelper("simon")}
             delayShow="150">
-            <ThumbnailImage src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/minis/SimonMini_ybnppw.png"></ThumbnailImage>
+            <ThumbnailImage src="./galleryPhotos/SimonMini.png"></ThumbnailImage>
           </Tooltip>
         </a>
         <a
@@ -164,7 +164,7 @@ function Gallery() {
             placement="bottom"
             tooltip={tooltipHelper("pomodoro")}
             delayShow="150">
-            <ThumbnailImage src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/minis/PomodoroMini_ka4sfc.png"></ThumbnailImage>
+            <ThumbnailImage src="./galleryPhotos/PomodoroMini.png"></ThumbnailImage>
           </Tooltip>
         </a>
         <a
@@ -175,7 +175,7 @@ function Gallery() {
             placement="top"
             tooltip={tooltipHelper("calculator")}
             delayShow="150">
-            <ThumbnailImage src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/minis/CalculatorMini_xw27y0.png"></ThumbnailImage>
+            <ThumbnailImage src="./galleryPhotos/CalculatorMini.png"></ThumbnailImage>
           </Tooltip>
         </a>
         <a
@@ -186,13 +186,19 @@ function Gallery() {
             placement="top"
             tooltip={tooltipHelper("ticTacToe")}
             delayShow="150">
-            <ThumbnailImage src="http://res.cloudinary.com/devvqi6h0/image/upload/v1512596651/minis/TicTacToeMini_pp4uvj.png"></ThumbnailImage>
+            <ThumbnailImage src="./galleryPhotos/TicTacToeMini.png"></ThumbnailImage>
           </Tooltip>
         </a>
       </GalleryContent>
-    </>
+    </GalleryContainer>
   );
 }
+
+const GalleryContainer = styled.div`
+  background-image: url("./cork_board.webp");
+  background-size: 100% 100%;
+  height: 100%;
+`;
 
 const GalleryHeader = styled.div`
   p {
