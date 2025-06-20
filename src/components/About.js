@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import AboutMeManilla from "./AboutManillas/AboutMeManilla";
+import HowIGotStartedManilla from "./AboutManillas/HowIGotStartedManilla";
 
 import "react-popper-tooltip/dist/styles.css";
 function About({ status }) {
@@ -75,6 +76,7 @@ function About({ status }) {
         <MMSpaceholder>
           <ManillaMiniWrapper
             animate={animateManillaBool}
+            lockout={lockout}
             animateAllowed={activeManillaId === 1}
             slightShift={"7px"}
             onClick={() => fireAnimations(1)}>
@@ -90,12 +92,15 @@ function About({ status }) {
               <HomeHeaderGap src="https://res.cloudinary.com/devvqi6h0/image/upload/v1591644755/portfolio%20resources/tabGap2SeeThrough.png"></HomeHeaderGap>
             </ManillaMiniCover>
 
-            {miniManillaVisible && activeManillaId === 1 && <AboutMeManilla />}
+            {miniManillaVisible && activeManillaId === 1 && (
+              <HowIGotStartedManilla />
+            )}
           </ManillaMiniWrapper>
         </MMSpaceholder>
         <MMSpaceholder>
           <ManillaMiniWrapper
             animate={animateManillaBool}
+            lockout={lockout}
             animateAllowed={activeManillaId === 2}
             slightShift={"2px"}
             onClick={() => fireAnimations(2)}>
@@ -115,6 +120,7 @@ function About({ status }) {
         <MMSpaceholder>
           <ManillaMiniWrapper
             animate={animateManillaBool}
+            lockout={lockout}
             animateAllowed={activeManillaId === 3}
             onClick={() => fireAnimations(3)}>
             <NavButtonImage
@@ -133,6 +139,7 @@ function About({ status }) {
         <MMSpaceholder>
           <ManillaMiniWrapper
             animate={animateManillaBool}
+            lockout={lockout}
             animateAllowed={activeManillaId === 4}
             slightShift={"8px"}
             onClick={() => fireAnimations(4)}>
@@ -171,11 +178,11 @@ const ManillaMiniWrapper = styled.div`
   flex-shrink: 0;
   margin-left: ${({ slightShift }) => slightShift};
 
-  ${({ animate, animateAllowed }) => {
+  ${({ animate, animateAllowed, lockout }) => {
     if (animateAllowed) {
       if (animate == "animate") return `animation: popAndOpen 1s forwards;`;
       else if (animate == "") return `animation: popAndClose 1s forwards;`;
-    } else {
+    } else if (!lockout) {
       return `
       &:hover {
         transform: translateY(-30px) rotateX(20deg);
