@@ -273,13 +273,11 @@ const Drawer = styled.div`
   // width: 80%;
   height: 600px;
   padding-top: 60px;
-  background-image: url("./ai_drawer_long.png");
-  background-size: 100% 100%;
-  background-position-y: -20rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 23rem;
+  margin-top: -1rem;
 `;
 
 const HomeHeaderGap = styled.img`
