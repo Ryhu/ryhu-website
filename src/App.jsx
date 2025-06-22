@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import "./App.css";
-import { Link } from "react-router-dom";
 import Home from "./components/Home";
 import About from "./components/About";
 import Gallery from "./components/Gallery";
@@ -278,7 +277,7 @@ const Page = styled.div`
 const AppContainer = styled.div`
   text-align: center;
   height: 100vh;
-  background-image: url("./wood_table_background.jpg");
+  background-image: url('/wood_table_background.jpg');
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-color: black;

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import TooltipTrigger from "react-popper-tooltip";
+import TooltipWrapper from "./TooltipWrapper";
 import "react-popper-tooltip/dist/styles.css";
 
 function Gallery() {
@@ -93,42 +93,11 @@ function Gallery() {
   };
 
   const Tooltip = ({ children, tooltip, hideArrow, ...props }) => (
-    <TooltipTrigger
+    <TooltipWrapper
       {...props}
-      tooltip={({
-        arrowRef,
-        tooltipRef,
-        getArrowProps,
-        getTooltipProps,
-        placement,
-      }) => (
-        <div
-          {...getTooltipProps({
-            ref: tooltipRef,
-            className: "tooltip-container",
-          })}>
-          {!hideArrow && (
-            <div
-              {...getArrowProps({
-                ref: arrowRef,
-                className: "tooltip-arrow",
-                "data-placement": placement,
-              })}
-            />
-          )}
-          {tooltip}
-        </div>
-      )}>
-      {({ getTriggerProps, triggerRef }) => (
-        <span
-          {...getTriggerProps({
-            ref: triggerRef,
-            className: "trigger",
-          })}>
-          {children}
-        </span>
-      )}
-    </TooltipTrigger>
+      tooltip={tooltip}>
+      {children}
+    </TooltipWrapper>
   );
 
   return (

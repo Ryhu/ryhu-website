@@ -3,8 +3,7 @@ import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngular, faReact } from "@fortawesome/free-brands-svg-icons";
 import { faGem, faFileAlt, faHeart } from "@fortawesome/free-solid-svg-icons";
-
-import TooltipTrigger from "react-popper-tooltip";
+import TooltipWrapper from "../TooltipWrapper";
 
 function AboutMeManilla() {
   const [tab, setTab] = useState("summary");
@@ -160,33 +159,11 @@ const StoryContainer = styled.div`
 `;
 
 const Tooltip = ({ children, tooltip, hideArrow, ...props }) => (
-  <TooltipTrigger
+  <TooltipWrapper
     {...props}
-    tooltip={({
-      arrowRef,
-      tooltipRef,
-      getArrowProps,
-      getTooltipProps,
-      placement,
-    }) => (
-      <div
-        {...getTooltipProps({
-          ref: tooltipRef,
-          className: "tooltip-container",
-        })}>
-        {tooltip}
-      </div>
-    )}>
-    {({ getTriggerProps, triggerRef }) => (
-      <span
-        {...getTriggerProps({
-          ref: triggerRef,
-          className: "trigger",
-        })}>
-        {children}
-      </span>
-    )}
-  </TooltipTrigger>
+    tooltip={tooltip}>
+    {children}
+  </TooltipWrapper>
 );
 
 const IconRow = styled.div`
